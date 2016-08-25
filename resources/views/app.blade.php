@@ -50,7 +50,7 @@
 		@endif
 		
 		@if ($view_name != "pages-home")
-			<div class="container" {{ session()->has('msg') ? "" : 'style="margin-top: 60px;"' }}>
+			<div class="container" style="margin-top: 60px;">
 			@yield('content')
 			</div>
 		@else
