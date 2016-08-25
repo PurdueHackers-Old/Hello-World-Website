@@ -76,7 +76,7 @@ h1 {
   font-size: 1.1em;
   font-weight: 300;
   a {
-    .link-btn {
+    &.link-btn {
       border: 1px solid $redLight;
       border-radius: 0;
       padding: 0.75em 0.7em;
@@ -431,6 +431,21 @@ h1 {
         background: none;
         border: none;
         padding: none;
+      }
+      &.link-btn {
+        border: 1px solid $redLight;
+        border-radius: 0;
+        padding: 0.75em 0.7em;
+        color: $redLight;
+        text-decoration: none;
+        transition: color 0.1s linear;
+
+        &:hover {
+          background: $redLight;
+          color: $cream;
+          transition: all 0.15s linear;
+        }
+
       }
     }
 
