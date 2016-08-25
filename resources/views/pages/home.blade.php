@@ -44,20 +44,20 @@
 			<a class="link-other"href="#">
 				<p class='subhead'>September 6th</p>
 				TBA
-			</a><br><br>
+			</a><br><br><br><br><br>
 			<a class="link-other"href="#">
 				<p class='subhead'>September 7th</p>
 				TBA
-			</a><br><br>
+			</a><br><br><br><br>
 			<a class="link-other"href="#">
 				<p class='subhead'>September 8th</p>
 				TBA
-			</a><br><br>
+			</a><br><br><br><br>
 			<a class="link-other"href="#">
 				<p class='subhead'>September 9th</p>
 				TBA
 			</a>
-			<br><br><br>
+			<br><br><br><br><br><br><br>
 			<a class="link-other"href="#">
 				<p class='subhead'>September 10-11th</p>
 				Hello World
@@ -65,6 +65,8 @@
 		</div>
 	</div>
 </div>
+
+<br><br><br><br><br>
 
 <div class="faq clearfix">
 	<h1>FAQ</h1>
