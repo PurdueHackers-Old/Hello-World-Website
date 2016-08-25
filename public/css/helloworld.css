@@ -544,7 +544,7 @@ a {
 .welcome {
   padding: 20px;
   margin-top: 20px;
-  background-image: url("../images/stars.svg");
+  background-image: url("/images/HW/stars.svg");
   background-repeat: no-repeat;
   background-size: cover; }
 
@@ -654,7 +654,7 @@ a {
 
 /* line 257, site.css.scss */
 .cloud1 {
-  background-image: url("../images/cloud1.svg");
+  background-image: url("/images/HW/cloud1.svg");
   background-repeat: no-repeat;
   background-size: 120%;
   position: relative;
@@ -688,7 +688,7 @@ a {
 .cloud2 {
   margin-top: -650px;
   padding-top: 150px;
-  background-image: url("../images/cloud2.svg");
+  background-image: url("/images/HW/cloud2.svg");
   background-repeat: no-repeat;
   background-size: 120%;
   position: relative;
@@ -759,7 +759,7 @@ a {
 
 /* line 363, site.css.scss */
 .cloud3 {
-  background-image: url("../images/cloud3.svg");
+  background-image: url("/images/HW/cloud3.svg");
   background-repeat: no-repeat;
   background-size: cover; }
   /* line 368, site.css.scss */
@@ -782,7 +782,7 @@ a {
 
 /* line 392, site.css.scss */
 .cloud4 {
-  background-image: url("../images/cloud4.svg");
+  background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
   border-bottom: 1px solid #DB8168;
   background-size: cover; }
@@ -972,7 +972,7 @@ a {
 
 /* line 601, site.css.scss */
 .cloud1 {
-  background-image: url("../images/cloud1.svg");
+  background-image: url("/images/HW/cloud1.svg");
   background-repeat: no-repeat;
   background-size: 120%;
   position: relative;
@@ -1006,7 +1006,7 @@ a {
 .cloud2 {
   margin-top: -650px;
   padding-top: 150px;
-  background-image: url("../images/cloud2.svg");
+  background-image: url("/images/HW/cloud2.svg");
   background-repeat: no-repeat;
   background-size: 120%;
   position: relative;
@@ -1081,7 +1081,7 @@ a {
 
 /* line 710, site.css.scss */
 .cloud3 {
-  background-image: url("../images/cloud3.svg");
+  background-image: url("/images/HW/cloud3.svg");
   background-repeat: no-repeat;
   background-size: cover; }
   /* line 715, site.css.scss */
@@ -1104,7 +1104,7 @@ a {
 
 /* line 739, site.css.scss */
 .cloud4 {
-  background-image: url("../images/cloud4.svg");
+  background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
   border-bottom: 1px solid #DB8168;
   background-size: cover; }
