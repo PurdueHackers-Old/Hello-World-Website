@@ -1,7 +1,42 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
 @charset "utf-8";
 @import "normalize";
+
+/* ------------------------ Sections ------------------------- */
+
+.panel {
+	color: #333333;
+}
+
+/* ------------------------ Tables ------------------------- */
+
+.table-clickable tbody tr:hover {
+	cursor: pointer;
+}
+
+/*-------------- PAGE WRAP-------------- */
+
+html, body {
+}
+
+#pageWrap { /* Pushes footer to bottom */
+	min-height: 100%;
+	margin-bottom: -60px;
+}
+
+#pageWrap:after {
+  content: "";
+  display: block;
+  height: 60px;
+}
+
+/* ------------- FORM LABELS -------------- */
+
+label {
+	text-align: left;
+	width: 100%;
+	color: #666666;
+}
+
 body {
   background-color: $color1;
   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$color1, endColorstr=$color2);
@@ -41,16 +76,20 @@ h1 {
   font-size: 1.1em;
   font-weight: 300;
   a {
-    border: 1px solid $redLight;
-    border-radius: 0;
-    padding: 0.75em 0.7em;
-    color: $redLight;
-    text-decoration: none;
-    transition: color 0.1s linear;
-    &:hover {
-      background: $redLight;
-      color: $cream;
-      transition: all 0.15s linear;
+    .link-btn {
+      border: 1px solid $redLight;
+      border-radius: 0;
+      padding: 0.75em 0.7em;
+      color: $redLight;
+      text-decoration: none;
+      transition: color 0.1s linear;
+
+      &:hover {
+        background: $redLight;
+        color: $cream;
+        transition: all 0.15s linear;
+      }
+
     }
   }
 }
@@ -87,26 +126,11 @@ h1 {
 .clearfix {
   display: inline-block;
 }
-a {
-  border: 1px solid $red;
-  background: $red;
-  border-radius: 0;
-  padding: 0.75em 0.7em;
-  color: $cream;
-  text-decoration: none;
-  transition: color 0.1s linear;
-  &:hover {
-    background: $cream;
-    border-color: $cream;
-    color: $red;
-    transition: all 0.15s linear;
-    cursor: pointer;
-  }
-}
+
 .welcome {
   padding: 20px;
   margin-top: 20px;
-  background-image: url("/images/stars.svg");
+  background-image: url("/images/HW/stars.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -160,7 +184,7 @@ a {
   margin: 0 100px;
   .rocket {}
 }
-.nav {
+.navHome {
   position: fixed;
   z-index: 5;
   top: 0;
@@ -220,7 +244,7 @@ a {
   }
 }
 .cloud1 {
-  background-image: url("/images/cloud1.svg");
+  background-image: url("/images/HW/cloud1.svg");
   background-repeat: no-repeat;
   background-size: 120%;
   position: relative;
@@ -249,7 +273,7 @@ a {
 .cloud2 {
   margin-top: -650px;
   padding-top: 150px;
-  background-image: url("/images/cloud2.svg");
+  background-image: url("/images/HW/cloud2.svg");
   background-repeat: no-repeat;
   background-size: 120%;
   position: relative;
@@ -326,7 +350,7 @@ a {
   }
 }
 .cloud3 {
-  background-image: url("/images/cloud3.svg");
+  background-image: url("/images/HW/cloud3.svg");
   background-repeat: no-repeat;
   background-size: cover;
   .info {
@@ -355,7 +379,7 @@ a {
   }
 }
 .cloud4 {
-  background-image: url("/images/cloud4.svg");
+  background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
   border-bottom: 1px solid $redLight;
   background-size: cover;
@@ -395,18 +419,23 @@ a {
     margin: 5px 0 0;
   }
   a {
-    background: none;
-    max-width: 20px;
-    padding: 0;
-    border: none;
-    display: inline;
-    font-weight: normal;
-  }
-  a:hover {
-    background: none;
-    border: none;
-    padding: none;
-  }
+
+
+      background: none;
+      max-width: 20px;
+      padding: 0;
+      border: none;
+      display: inline;
+      font-weight: normal;
+      &:hover {
+        background: none;
+        border: none;
+        padding: none;
+      }
+    }
+
+
+
   .ph {
     max-width: 25px;
     margin: 0 4px -7px;
@@ -501,4 +530,227 @@ a {
   }
 
 
+}
+.navHome {
+
+}
+$red: #ee3e23;
+$redLight: #DB8168;
+$cream: #f2f1dc;
+$teal: #52bfa8;
+$tealDark: #2a5e51;
+$black: #000;
+$white: #fff;
+
+/* gradient */
+
+$color1: #000;
+$color2: #52bfa8;
+$color3: #f2f1dc;
+
+
+
+.cloud {
+  margin-top: -275px;
+  min-height: 800px;
+  &.cloud3 {
+    margin-top: 100px;
+  }
+  .info {
+    text-align: center;
+    margin-top: 250px;
+    display: inline-block;
+    @media (min-width: 1500px) {
+      margin-top: 20%;
+
+    }
+
+  }
+  @media (max-width: 718px) {
+    .info {
+      padding: 20px;
+    }
+  }
+  @media (min-width: 1500px) {
+    min-height: 900px;
+
+  }
+  @media (min-width: 1900px) {
+    min-height: 1000px;
+
+  }
+  @media (min-width: 2000px) {
+    min-height: 1200px;
+
+  }
+  @media (min-width: 2200px) {
+    min-height: 1300px;
+
+  }
+}
+.cloud1 {
+  background-image: url("/images/HW/cloud1.svg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  position: relative;
+  z-index: 1;
+  margin-top: -100px;
+}
+.cloud3,
+.cloud4 {
+  .info {
+    max-width: 300px;
+    @media (min-width: 1800px) {
+      max-width: 50%;
+      h2 {
+        font-size: 45px;
+      }
+      p {
+        font-size: 30px;
+        text-align: left;
+      }
+      a {
+        font-size: 30px;
+      }
+    }
+  }
+}
+.cloud2 {
+  margin-top: -650px;
+  padding-top: 150px;
+  background-image: url("/images/HW/cloud2.svg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  position: relative;
+  z-index: 2;
+  .left {
+    min-width: 10px;
+    margin: 20px 50px 0 0;
+  }
+  .right {
+    margin-top: 0;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+  .logo {
+    max-width: 200px;
+    min-height: 10px;
+    //    display: inline-block;
+    margin: 0;
+  }
+  @media (min-width: 900px) {
+    margin-top: -575px;
+  }
+  @media (min-width: 1100px) {
+    margin-top: -515px;
+    .right {
+      margin-top: 40px;
+      min-width: 600px;
+    }
+  }
+  @media (min-width: 1800px) {
+    margin-top: -450px;
+  }
+  @media (max-width: 718px) {
+    &.cloud {
+      .logo {
+        margin: 0;
+        min-height: 0;
+      }
+    }
+    .info {
+      padding: 15px;
+      .left,
+      .right {
+        min-width: 0;
+        padding: 15px;
+      }
+      .left {
+        margin: 25px 30px 0;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .info {
+      .logo {
+        min-width: 0;
+      }
+      .left {
+        margin: 0;
+      }
+    }
+  }
+  @media (max-width: 300px) {
+    .info {
+      .logo {
+        min-width: 0;
+        max-width: 115px;
+      }
+    }
+  }
+  .info {
+    padding: 20px;
+    margin-top: 20px;
+      @media (min-width: 1300px) {
+        margin-top: 180px;
+      }
+  }
+}
+.cloud3 {
+  background-image: url("/images/HW/cloud3.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .info {
+    p {
+      padding-bottom: 20px;
+      text-align: left;
+    }
+    a {
+      border-color: $tealDark;
+      color: $tealDark;
+      background: none;
+    }
+    a:hover {
+      background-color: $teal;
+      border-color: $teal;
+      color: $white;
+    }
+  }
+  .cloud3 {
+    .info {
+      p {
+        text-align: left;
+
+      }
+    }
+  }
+}
+.cloud4 {
+  background-image: url("/images/HW/cloud4.svg");
+  background-repeat: no-repeat;
+  border-bottom: 1px solid $redLight;
+  background-size: cover;
+  a {
+    border-color: $teal;
+    background-color: $teal;
+    color: $cream;
+  }
+  a:hover {
+    background-color: $cream;
+    border-color: $cream;
+    color: $teal;
+  }
+}
+@media (max-width: 500px) {
+  .cloud3,
+  .cloud4 {
+    background-size: cover;
+  }
+}
+@media (min-width: 1000px) {
+  .cloud3,
+  .cloud4 {
+    background-size: cover;
+  }
 }
