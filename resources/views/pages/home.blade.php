@@ -36,6 +36,7 @@
 	</div>
 </div>
 
+{{--
 <div class="timeline">
 	<h1>Pre-Event Schedule</h1>
 	<div class="contain">
@@ -44,6 +45,7 @@
 			<a class="link-btn"href="#">
 				<p class='subhead'>September 6th</p>
 				TBA
+
 			</a><br><br>
 			<a class="link-btn"href="#">
 				<p class='subhead'>September 7th</p>
@@ -59,12 +61,17 @@
 			</a>
 			<br><br><br>
 			<a class="link-btn"href="#">
+
 				<p class='subhead'>September 10-11th</p>
 				Hello World
 			</a>
 		</div>
 	</div>
 </div>
+
+--}}
+
+<br><br><br><br><br>
 
 <div class="faq clearfix">
 	<h1>FAQ</h1>
