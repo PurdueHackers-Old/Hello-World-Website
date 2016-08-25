@@ -102,8 +102,8 @@
 			<p>You have to build your project from scratch, and may only code during the 24 hours allotted for coding. Furthermore you should only use resources freely available to everyone at the hackathon. And don’t forget to be polite and respectful of everyone at the event!</p>
 		</div>
 		<div class="faq-sec">
-			<p class="subhead">Have another question? Feel free to contact:
-				<p class="subhead">purduehackers@gmail.com</p>
+			<p class="subhead">Have another question? Feel free to contact:<br><br>
+				<a href="mailto:purduehackers@gmail.com" class="button btn-sm">purduehackers@gmail.com</a>
 			</p>
 		</div>
 	</div>
