@@ -41,24 +41,24 @@
 	<div class="contain">
 		<img src="images/HW/timeline.svg">
 		<div class='right'>
-			<a href="#">
+			<a class="link-other"href="#">
 				<p class='subhead'>September 6th</p>
 				TBA
 			</a><br><br>
-			<a href="#">
+			<a class="link-other"href="#">
 				<p class='subhead'>September 7th</p>
 				TBA
 			</a><br><br>
-			<a href="#">
+			<a class="link-other"href="#">
 				<p class='subhead'>September 8th</p>
 				TBA
 			</a><br><br>
-			<a href="#">
+			<a class="link-other"href="#">
 				<p class='subhead'>September 9th</p>
 				TBA
 			</a>
 			<br><br><br>
-			<a href="#">
+			<a class="link-other"href="#">
 				<p class='subhead'>September 10-11th</p>
 				Hello World
 			</a>
@@ -87,7 +87,7 @@
 			<p>You’ll need to register on this page, but Hello World will be a first come first serve event.</p>
 		</div>
 	</div>
-	
+
 	<div class="faq-right clearfix">
 		<div class="faq-sec">
 			<p class="subhead">Are you providing food?</p>
@@ -125,7 +125,7 @@
 		<h2>Mentors</h2>
 		<p>Getting help from mentors can be an essential part of a hackathon. At Hello World, we will offer several mentors who specialize in various technologies to assist you with your project if you need help. Don’t be afraid to ask for assistance! We encourage every team to seek out help from mentors if they’re having trouble understanding a concept or how to implement a certain technology. A hackathon is a great place to learn new things, and we hope that you’ll take advantage of and learn a lot from our amazing mentors!</p>
 		<br><br>
-		<a href="/join">Sign Up</a>
+		<a class="link-other"href="/join">Sign Up</a>
 	</div>
 </div>
 

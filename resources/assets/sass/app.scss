@@ -1,2 +1,504 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@charset "utf-8";
+@import "normalize";
+body {
+  background-color: $color1;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$color1, endColorstr=$color2);
+  background-image: -moz-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+  background-image: linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+  background-image: -webkit-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+  background-image: -o-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+  background-image: -ms-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+  background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%,$color1), color-stop(25%, $color2),color-stop(100%, $color3));
+  background-repeat: no-repeat;
+  background-attachment: center;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  color: $cream;
+  margin: 0;
+  padding: 0;
+}
+.logo img {
+  height: 18.75em;
+}
+h1 {
+  color: $cream;
+  font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 0;
+}
+.doc {
+  margin: 0;
+  font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  a {
+    border: 1px solid $redLight;
+    border-radius: 0;
+    padding: 0.75em 0.7em;
+    color: $redLight;
+    text-decoration: none;
+    transition: color 0.1s linear;
+    &:hover {
+      background: $redLight;
+      color: $cream;
+      transition: all 0.15s linear;
+    }
+  }
+}
+.welcome {
+  -webkit-animation-name: welcome;
+  -webkit-animation-duration: 0.9s;
+}
+@-webkit-keyframes welcome {
+  from {
+    -webkit-transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(0);
+    opacity: 0;
+  }
+  82.5% {
+    -webkit-transform: scale(1.03);
+    -webkit-animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+a {
+  border: 1px solid $red;
+  background: $red;
+  border-radius: 0;
+  padding: 0.75em 0.7em;
+  color: $cream;
+  text-decoration: none;
+  transition: color 0.1s linear;
+  &:hover {
+    background: $cream;
+    border-color: $cream;
+    color: $red;
+    transition: all 0.15s linear;
+    cursor: pointer;
+  }
+}
+.welcome {
+  padding: 20px;
+  margin-top: 20px;
+  background-image: url("/images/stars.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width: 719px) {
+  .welcome {
+    margin-bottom: 200px;
+    .rocket {
+      max-width: 150px;
+    }
+    .left {
+      margin: 0 120px;
+    }
+    .right {
+      margin-top: 10px;
+      padding: 15px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .welcome {
+    .rocket {
+      max-width: 100px;
+    }
+    .left {
+      margin: 0;
+    }
+  }
+}
+.left,
+.right {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 300px;
+}
+.right {
+  margin-top: 50px;
+  text-align: left;
+  h1,
+  h2 {
+    display: inline-block;
+  }
+  h1 {
+    font-weight: bold;
+  }
+  h2 {
+    padding-bottom: 20px;
+    font-weight: normal;
+  }
+}
+.left {
+  margin: 0 100px;
+  .rocket {}
+}
+.nav {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  padding: 25px;
+  min-height: 75px;
+  text-align: center;
+  a {
+    position: fixed;
+    text-align: center;
+    right: 20px;
+    top: 20px;
+  }
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+// clouds background-size: conatin; in mobile and small desktop
+// clouds background-size: cover; in hd desktop
+// 358 when spreads to 2
+.cloud {
+  margin-top: -275px;
+  min-height: 800px;
+  @media (min-width: 1500px) {
+    min-height: 900px;
+
+  }
+  @media (min-width: 1900px) {
+    min-height: 1000px;
+
+  }
+  @media (min-width: 2000px) {
+    min-height: 1200px;
+
+  }
+  @media (min-width: 2200px) {
+    min-height: 1300px;
+
+  }
+
+  &.cloud3 {
+    margin-top: 100px;
+  }
+  .info {
+    text-align: center;
+    margin-top: 250px;
+    display: inline-block;
+    @media (min-width: 1500px) {
+      margin-top: 20%;
+
+    }
+
+  }
+  @media (max-width: 718px) {
+    .info {
+      padding: 20px;
+    }
+  }
+}
+.cloud1 {
+  background-image: url("/images/cloud1.svg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  position: relative;
+  z-index: 1;
+  margin-top: -100px;
+}
+.cloud3,
+.cloud4 {
+  .info {
+    max-width: 300px;
+    @media (min-width: 1800px) {
+      max-width: 50%;
+      h2 {
+        font-size: 45px;
+      }
+      p {
+        font-size: 30px;
+        text-align: left;
+      }
+      a {
+        font-size: 30px;
+      }
+    }
+  }
+}
+.cloud2 {
+  margin-top: -650px;
+  padding-top: 150px;
+  background-image: url("/images/cloud2.svg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  position: relative;
+  z-index: 2;
+  .left {
+    min-width: 10px;
+    margin: 20px 50px 0 0;
+  }
+  .right {
+    margin-top: 0;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+  .logo {
+    max-width: 200px;
+    min-height: 10px;
+    //    display: inline-block;
+    margin: 0;
+  }
+  @media (min-width: 900px) {
+    margin-top: -575px;
+  }
+  @media (min-width: 1100px) {
+    margin-top: -515px;
+    .right {
+      margin-top: 40px;
+      min-width: 600px;
+    }
+  }
+  @media (min-width: 1800px) {
+    margin-top: -450px;
+  }
+  @media (max-width: 718px) {
+    &.cloud {
+      .logo {
+        margin: 0;
+        min-height: 0;
+      }
+    }
+    .info {
+      padding: 15px;
+      .left,
+      .right {
+        min-width: 0;
+        padding: 15px;
+      }
+      .left {
+        margin: 25px 30px 0;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .info {
+      .logo {
+        min-width: 0;
+      }
+      .left {
+        margin: 0;
+      }
+    }
+  }
+  @media (max-width: 300px) {
+    .info {
+      .logo {
+        min-width: 0;
+        max-width: 115px;
+      }
+    }
+  }
+  .info {
+    padding: 20px;
+    margin-top: 20px;
+  }
+}
+.cloud3 {
+  background-image: url("/images/cloud3.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .info {
+    p {
+      padding-bottom: 20px;
+      text-align: left;
+    }
+    a {
+      border-color: $tealDark;
+      color: $tealDark;
+      background: none;
+    }
+    a:hover {
+      background-color: $teal;
+      border-color: $teal;
+      color: $white;
+    }
+  }
+  .cloud3 {
+    .info {
+      p {
+        text-align: left;
+
+      }
+    }
+  }
+}
+.cloud4 {
+  background-image: url("/images/cloud4.svg");
+  background-repeat: no-repeat;
+  border-bottom: 1px solid $redLight;
+  background-size: cover;
+  a {
+    border-color: $teal;
+    background-color: $teal;
+    color: $cream;
+  }
+  a:hover {
+    background-color: $cream;
+    border-color: $cream;
+    color: $teal;
+  }
+}
+@media (max-width: 500px) {
+  .cloud3,
+  .cloud4 {
+    background-size: cover;
+  }
+}
+@media (min-width: 1000px) {
+  .cloud3,
+  .cloud4 {
+    background-size: cover;
+  }
+}
+.footer {
+  vertical-align: center;
+  align-items: center;
+  display: inline-block;
+  color: $redLight;
+  font-size: 10px;
+  min-height: 40px;
+  padding: 10px;
+  h2 {
+    display: inline-block;
+    margin: 5px 0 0;
+  }
+  a {
+    background: none;
+    max-width: 20px;
+    padding: 0;
+    border: none;
+    display: inline;
+    font-weight: normal;
+  }
+  a:hover {
+    background: none;
+    border: none;
+    padding: none;
+  }
+  .ph {
+    max-width: 25px;
+    margin: 0 4px -7px;
+  }
+  .ph:hover {
+    color: $redLight;
+  }
+  @media (max-width: 400px) {
+    font-size: 7px;
+  }
+  .badge {
+    margin: 0 4px -7px;
+    max-width: 25px;
+  }
+}
+.timeline {
+  text-align: center;
+  h1 {
+    margin-bottom: 25px;
+  }
+  .contain {
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 20px;
+    vertical-align: top;
+  }
+  img {
+    width: 50px;
+    display: inline;
+  }
+  .right {
+    padding-left: 20px;
+    margin: -25px 0 0;
+  }
+  a {
+    background: none;
+    border: none;
+    text-align: left;
+    display: block;
+    p {
+      text-align: left;
+      display: block;
+      &.subhead {
+        display: block;
+        line-height: 38px;
+      }
+    }
+  }
+}
+.subhead {
+  text-transform: uppercase;
+  display: block;
+  font-size: $subtext;
+}
+.faq {
+  text-align: center;
+  padding:120px 120px;
+  display: block;
+  @media (max-width: 700px) {
+    padding: 120px 20px;
+  }
+
+  .subhead {
+    font-size: 15px;
+    color: #6D6D67;
+  }
+  .faq-sec {
+    text-align: left;
+  }
+  @media (min-width: 1200px) {
+    padding: 0 10%;
+  }
+}
+.faq-left {
+  float: left;
+}
+.faq-right {
+  float: right;
+}
+.faq-left, .faq-right {
+  display: inline-block;
+  max-width:40%;
+  min-width:150px;
+  padding: 20px;
+  @media (max-width: 700px) {
+    float: none;
+    display: block;
+    max-width: none;
+  }
+  @media (max-width: 700px) {
+
+  }
+
+
+}
