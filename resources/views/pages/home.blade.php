@@ -2,9 +2,9 @@
 
 @section("content")
 
-<div class="nav">
-	<a href="/join" style="margin-right: 90px;">Sign Up</a>
-	<a href="/login">Log In</a>
+<div class="navHome">
+	<a href="/join" class="button btn-lg" style="margin-right: 100px;">Sign Up</a>
+	<a href="/login" class="button btn-lg">Log In</a>
 </div>
 
 <div class="welcome">
@@ -14,7 +14,7 @@
 	<div class="right">
 		<h1>Hello World</h1>
 		<h2>A weekend dedicated to introduce you to a world of technology</h2>
-		<a href="/join">Sign Up</a>
+		<a href="/join" class="button btn-lg">Sign Up</a>
 	</div>
 </div>
 

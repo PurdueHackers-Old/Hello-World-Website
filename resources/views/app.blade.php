@@ -18,9 +18,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         
         <!-- Bootstrap CSS -->
-        @if ($view_name != "pages-home")
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		@endif
 		
 		<!-- Bootstrap IE8 Support -->
 	    <!--[if lt IE 9]>
@@ -45,14 +43,14 @@
 		<div id="pageWrap">
 		
 		@if (session()->has('msg'))
-		<div class='container'>
+		<div class='container' style="margin-top: 60px;">
 			<div class="alert alert-success" role="alert">{{ session()->get('msg') }}</div>
 			<?php session()->forget('msg'); ?>
 		</div>
 		@endif
 		
 		@if ($view_name != "pages-home")
-			<div class="container">
+			<div class="container" {{ session()->has('msg') ? "" : 'style="margin-top: 60px;"' }}>
 			@yield('content')
 			</div>
 		@else
