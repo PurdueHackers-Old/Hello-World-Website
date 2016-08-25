@@ -21,7 +21,7 @@ html, body {
 
 #pageWrap { /* Pushes footer to bottom */
 	min-height: 100%;
-	margin-bottom: -60px; 
+	margin-bottom: -60px;
 }
 
 #pageWrap:after {

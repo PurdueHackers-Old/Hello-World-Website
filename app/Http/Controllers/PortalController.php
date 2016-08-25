@@ -132,7 +132,7 @@ class PortalController extends Controller {
 		// Authenticate Application
 		$this->setAuthenticated($request, $member->id, $member->name);
 		
-		return $this->getIndex();
+		return $this->getApply($request,1);
 	}
 	
 	public function isAuthenticated($request) {
