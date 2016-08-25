@@ -78,20 +78,29 @@
 	<div class="faq-left clearfix">
 		<div class='faq-sec'>
 			<p class="subhead">What is a hackathon?</p>
-			<p>A hackathon is an event held for hackers to come together and create real life applications. These applications are then judged and can be awarded prizes by companies and judges appointed by the hackathon organizers. But the companies aren’t just
-			there to judge, they normally assist people in using their technologies for their hackathon project as well as present tech talks.</p>
+			<p>
+				Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.
+				<br><br>
+				Over the course of one weekend you get to learn from upperclassmen mentors, follow beginning-to-end programming tutorials, and work with your classmates on a project of your choosing!
+
+			</p>
+		</div>
+		<div class='faq-sec'>
+			<p class="subhead">What is a hackathon??</p>
+			<p>A hackathon is a specialized event focused on building technical projects from scratch over a small period of time. Many students have found these marathon events to be a great way to learn how to code.
+			</p>
 		</div>
 		<div class='faq-sec'>
 			<p class="subhead">Who is this event intended for?</p>
-			<p>People who have never before participated in a hackathon. Hello World is intended as an introduction to the format of university hackathons.</p>
+			<p>Students who have never participated in a hackathon before. Hello World will prepare you with everything you need to know as you begin your collegiate hackathon career.
+
+			</p>
 		</div>
-		<div class='faq-sec'>
-			<p class="subhead">What should I bring to the event?</p>
-			<p>You’ll laptop and anything else that you use for coding such as chargers and phones.</p>
-		</div>
+
 		<div class="faq-sec">
 			<p class="subhead">How do I sign up?</p>
-			<p>You’ll need to register on this page, but Hello World will be a first come first serve event.</p>
+			<p>Register here. In the event we reach capacity, the hackathon will be first-come-first-serve. Arrive early for guarunteed admission!
+			</p>
 		</div>
 	</div>
 
@@ -102,11 +111,17 @@
 		</div>
 		<div class="faq-sec">
 			<p class="subhead">Will there be teams? </p>
-			<p> Yes! We highly encourage that you work with a team during Hello World. If you don’t come with a team already decided there will be time before coding officially starts for you to mingle and meet other hackers.</p>
+			<p>Teams are highly encouraged yet not required, collaboration is instrumental to the success of your weekend. There will be team-forming exercises at the beginning of the event for those who do not already have a team.
+			</p>
 		</div>
 		<div class="faq-sec">
 			<p class="subhead">What are the rules?</p>
-			<p>You have to build your project from scratch, and may only code during the 24 hours allotted for coding. Furthermore you should only use resources freely available to everyone at the hackathon. And don’t forget to be polite and respectful of everyone at the event!</p>
+			<p>Start work on your project at the beginning of the hackathon.<br>
+				Use technologies that are freely available for everyone to use.<br>
+​				 Be respectful. Harassment and abuse are never tolerated.
+
+
+			</p>
 		</div>
 		<div class="faq-sec">
 			<p class="subhead">Have another question? Feel free to contact:<br><br>
@@ -120,9 +135,9 @@
 	<div class="info clearfix">
 		<h2>Areas of Focus</h2>
 		<p>
-			While the mentors of Hello World will assist any project in any way we can, we will be giving major tech talks in these areas: iOS, Android, and web development.
+			Learning how to create an application is a great way to teach yourself how to code while allowing you to share your work across the world!
 			<br><br>
-			Again free feel to focus on whatever interests you, but know that we will have significant resources for helping those interested in those three areas of coding.
+			At Hello World there will be workshops in Anroid, iOS, and Web Development to help you get started. Mentors will guide you step-by-step as you create your very first application.
 		</p>
 	</div>
 </div>
@@ -130,7 +145,11 @@
 <div class="cloud4 cloud">
 	<div class="info clearfix">
 		<h2>Mentors</h2>
-		<p>Getting help from mentors can be an essential part of a hackathon. At Hello World, we will offer several mentors who specialize in various technologies to assist you with your project if you need help. Don’t be afraid to ask for assistance! We encourage every team to seek out help from mentors if they’re having trouble understanding a concept or how to implement a certain technology. A hackathon is a great place to learn new things, and we hope that you’ll take advantage of and learn a lot from our amazing mentors!</p>
+		<p>
+			Receiving guidance from mentors is a crucial part of being successful at your first hackathon. At Hello World there will be mentors who specialize in a wide variety of technologies to help you when needed.
+			<br><br>
+			The best way to learn is to surround yourself by experts in that domain, which is why thousands of students have found hackathons to be the perfect venues for learning.
+		</p>
 		<br><br>
 		<a class="link-btn"href="/join">Sign Up</a>
 	</div>
