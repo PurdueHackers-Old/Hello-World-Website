@@ -588,7 +588,11 @@ class PortalController extends Controller {
 		if (!$authenticatedMember) { $authenticatedMember = new Member(); }
 		$majors = Major::orderByRaw('(id = 1) DESC, name')->get(); // Order by name, but keep first major at top
 		
-		return view('pages.apply',compact('event', 'authenticatedMember', 'majors'));
+		if ($authenticatedMember != null) {
+			$hasRegistered = count($authenticatedMember->applications()->where('event_id',$eventID)->get()) > 0;
+		}
+		
+		return view('pages.apply',compact('event', 'authenticatedMember', 'majors', 'hasRegistered'));
 	}
 	
 	public function postApply(LoggedInRequest $request, $eventID) { // POST Apply
@@ -615,7 +619,7 @@ class PortalController extends Controller {
 		$application->save();
 		
 		$request->session()->flash('msg', 'Success, your application has been submitted!');
-		return $this->getEvent($request, $eventID);
+		return $this->getMember($request, $member->id);
 	}
 
 	/////////////////////////////// Helper Functions ///////////////////////////////

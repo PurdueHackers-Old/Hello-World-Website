@@ -12,20 +12,16 @@
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				@if(session()->get('authenticated_member') == "true")
-				<li><a href="/member/{{ session()->get('member_id') }}">Profile</a></li>
+					<li><a href="/member/{{ session()->get('member_id') }}">Profile</a></li>
+					<li><a href="/apply/1">Sign Up</a></li>
 				@endif
-				<li><a href="/members">Members</a></li>
-				<li><a href="/map">Map</a></li>
-				@if(session()->get('authenticated_member') == "true")
+				@if(session()->get('authenticated_admin') == "true")
+					<li><a href="/members">Members</a></li>
+					<li><a href="/map">Map</a></li>
 					<li><a href="/events">Events</a></li>
-					@if(session()->get('authenticated_admin') == "true")
-						<li><a href="/anvil-wifi">Anvil Wifi</a></li>
-					@endif
-					<li><a href="/logout">Logout</a></li>
-				@else
-					<li><a href="/login">Login</a></li>
-					<li><a href="/join">Join</a></li>
+					<li><a href="/anvil-wifi">Anvil Wifi</a></li>
 				@endif
+				<li><a href="/logout">Logout</a></li>
 			</ul>
 		</div>
 	</div>

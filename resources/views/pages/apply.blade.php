@@ -4,6 +4,9 @@
 
 <div class="section"><div class='section-container'>
 	<h3>Sign Up: {{ $event->name }}</h3>
+	@if ($hasRegistered)
+	<div class="alert alert-success" role="alert">You are already signed up!</div>
+	@else
 	<div class="panel panel-default">
 		<form method="post" action="/apply/{{ $event->id }}" class="panel-body validate">
 			{!! csrf_field() !!}
@@ -40,6 +43,7 @@
 			<input type="submit" value="Sign Up" class="btn btn-primary">
 		</form>
 	</div>
+	@endif
 </div></div>
 
 @stop
