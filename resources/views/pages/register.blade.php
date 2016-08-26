@@ -7,6 +7,7 @@
 	<div class="panel panel-default">
 		<form method="post" action="/join" class="panel-body validate">
 			{!! csrf_field() !!}
+			<p>If you already have a {{ env('DB_ORG_NAME') }} account, please <a href="/login">login.</a></p>
 			<label for="memberName">Full Name</label>
 			<input type="text" name="memberName" id="memberName" placeholder="Full Name" class="form-control" data-bvalidator="regex[\w+\s\w+],required" data-bvalidator-msg="Please enter your full name">
 			<br>
