@@ -3,8 +3,8 @@
 @section("content")
 
 <div class="navHome">
-	<a href="/join" class="button btn-lg" style="margin-right: 100px;">Sign Up</a>
-	<a href="/login" class="button btn-lg">Log In</a>
+	<a href="/join" class="button btn-lg link-btn" style="margin-right: 100px;">Sign Up</a>
+	<a href="/login" class="button btn-lg link-btn">Log In</a>
 </div>
 
 <div class="welcome">
@@ -14,7 +14,7 @@
 	<div class="right">
 		<h1>Hello World</h1>
 		<h2>A weekend dedicated to introduce you to a world of technology</h2>
-		<a href="/join" class="button btn-lg">Sign Up</a>
+		<a href="/join" class="button btn-lg link-btn">Sign Up</a>
 	</div>
 </div>
 
@@ -42,25 +42,25 @@
 	<div class="contain">
 		<img src="images/HW/timeline.svg">
 		<div class='right'>
-			<a class="link-btn"href="#">
+			<a class="link-btn" href="#">
 				<p class='subhead'>September 6th</p>
 				TBA
 
 			</a><br><br>
-			<a class="link-btn"href="#">
+			<a class="link-btn" href="#">
 				<p class='subhead'>September 7th</p>
 				TBA
 			</a><br><br>
-			<a class="link-btn"href="#">
+			<a class="link-btn" href="#">
 				<p class='subhead'>September 8th</p>
 				TBA
 			</a><br><br>
-			<a class="link-btn"href="#">
+			<a class="link-btn" href="#">
 				<p class='subhead'>September 9th</p>
 				TBA
 			</a>
 			<br><br><br>
-			<a class="link-btn"href="#">
+			<a class="link-btn" href="#">
 
 				<p class='subhead'>September 10-11th</p>
 				Hello World
@@ -151,7 +151,7 @@
 			The best way to learn is to surround yourself by experts in that domain, which is why thousands of students have found hackathons to be the perfect venues for learning.
 		</p>
 		<br><br>
-		<a class="link-btn"href="/join">Sign Up</a>
+		<a class="link-btn" href="/join">Sign Up</a>
 	</div>
 </div>
 
