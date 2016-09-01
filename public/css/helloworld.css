@@ -811,150 +811,144 @@ h1 {
   display: inline-block;
   color: #DB8168;
   font-size: 10px;
-  min-height: 40px;
-  padding: 10px; }
-  /* line 433, site.css.scss */
-  .footer h2 {
-    display: inline-block;
-    margin: 5px 0 0; }
-  /* line 441, site.css.scss */
+  min-height: 30px; }
+  /* line 434, site.css.scss */
   .footer .ph {
     max-width: 20px;
     margin: 0 4px -7px; }
-  /* line 445, site.css.scss */
+  /* line 438, site.css.scss */
   .footer .ph:hover {
     color: #DB8168; }
   @media (max-width: 400px) {
     /* line 425, site.css.scss */
     .footer {
       font-size: 7px; } }
-  /* line 451, site.css.scss */
+  /* line 444, site.css.scss */
   .footer .badgehw {
-    margin: 0 4px -7px;
     max-width: 20px; }
 
-/* line 456, site.css.scss */
+/* line 448, site.css.scss */
 .timeline {
   text-align: center; }
-  /* line 458, site.css.scss */
+  /* line 450, site.css.scss */
   .timeline h1 {
     margin-bottom: 25px; }
-  /* line 461, site.css.scss */
+  /* line 453, site.css.scss */
   .timeline .contain {
     max-width: 320px;
     margin: 0 auto;
     padding: 20px;
     vertical-align: top; }
-  /* line 467, site.css.scss */
+  /* line 459, site.css.scss */
   .timeline img {
     width: 50px;
     display: inline; }
-  /* line 471, site.css.scss */
+  /* line 463, site.css.scss */
   .timeline .right {
     padding-left: 20px;
     margin: -25px 0 0; }
-  /* line 475, site.css.scss */
+  /* line 467, site.css.scss */
   .timeline a {
     background: none;
     border: none;
     text-align: left;
     display: block; }
-    /* line 480, site.css.scss */
+    /* line 472, site.css.scss */
     .timeline a p {
       text-align: left;
       display: block; }
-      /* line 483, site.css.scss */
+      /* line 475, site.css.scss */
       .timeline a p.subhead {
         display: block;
         line-height: 38px; }
 
-/* line 490, site.css.scss */
+/* line 482, site.css.scss */
 .subhead {
   text-transform: uppercase;
   display: block;
   font-size: 10px; }
 
-/* line 495, site.css.scss */
+/* line 487, site.css.scss */
 .faq {
   text-align: center;
   padding: 120px 120px;
   display: block; }
   @media (max-width: 700px) {
-    /* line 495, site.css.scss */
+    /* line 487, site.css.scss */
     .faq {
       padding: 120px 20px; } }
-  /* line 503, site.css.scss */
+  /* line 495, site.css.scss */
   .faq .subhead {
     font-size: 15px;
     color: #6D6D67; }
-  /* line 507, site.css.scss */
+  /* line 499, site.css.scss */
   .faq .faq-sec {
     text-align: left; }
   @media (min-width: 1200px) {
-    /* line 495, site.css.scss */
+    /* line 487, site.css.scss */
     .faq {
       padding: 0 10%; } }
 
-/* line 514, site.css.scss */
+/* line 506, site.css.scss */
 .faq-left {
   float: left; }
 
-/* line 517, site.css.scss */
+/* line 509, site.css.scss */
 .faq-right {
   float: right; }
 
-/* line 520, site.css.scss */
+/* line 512, site.css.scss */
 .faq-left, .faq-right {
   display: inline-block;
   max-width: 40%;
   min-width: 150px;
   padding: 20px; }
   @media (max-width: 700px) {
-    /* line 520, site.css.scss */
+    /* line 512, site.css.scss */
     .faq-left, .faq-right {
       float: none;
       display: block;
       max-width: none; } }
 
 /* gradient */
-/* line 555, site.css.scss */
+/* line 547, site.css.scss */
 .cloud {
   margin-top: -275px;
   min-height: 800px; }
-  /* line 558, site.css.scss */
+  /* line 550, site.css.scss */
   .cloud.cloud3 {
     margin-top: 100px; }
-  /* line 561, site.css.scss */
+  /* line 553, site.css.scss */
   .cloud .info {
     text-align: center;
     margin-top: 250px;
     display: inline-block; }
     @media (min-width: 1500px) {
-      /* line 561, site.css.scss */
+      /* line 553, site.css.scss */
       .cloud .info {
         margin-top: 20%; } }
   @media (max-width: 718px) {
-    /* line 572, site.css.scss */
+    /* line 564, site.css.scss */
     .cloud .info {
       padding: 20px; } }
   @media (min-width: 1500px) {
-    /* line 555, site.css.scss */
+    /* line 547, site.css.scss */
     .cloud {
       min-height: 900px; } }
   @media (min-width: 1900px) {
-    /* line 555, site.css.scss */
+    /* line 547, site.css.scss */
     .cloud {
       min-height: 1000px; } }
   @media (min-width: 2000px) {
-    /* line 555, site.css.scss */
+    /* line 547, site.css.scss */
     .cloud {
       min-height: 1200px; } }
   @media (min-width: 2200px) {
-    /* line 555, site.css.scss */
+    /* line 547, site.css.scss */
     .cloud {
       min-height: 1300px; } }
 
-/* line 593, site.css.scss */
+/* line 585, site.css.scss */
 .cloud1 {
   background-image: url("/images/HW/cloud1.svg");
   background-repeat: no-repeat;
@@ -963,30 +957,30 @@ h1 {
   z-index: 1;
   margin-top: -100px; }
 
-/* line 603, site.css.scss */
+/* line 595, site.css.scss */
 .cloud3 .info,
 .cloud4 .info {
   max-width: 300px; }
   @media (min-width: 1800px) {
-    /* line 603, site.css.scss */
+    /* line 595, site.css.scss */
     .cloud3 .info,
     .cloud4 .info {
       max-width: 50%; }
-      /* line 607, site.css.scss */
+      /* line 599, site.css.scss */
       .cloud3 .info h2,
       .cloud4 .info h2 {
         font-size: 45px; }
-      /* line 610, site.css.scss */
+      /* line 602, site.css.scss */
       .cloud3 .info p,
       .cloud4 .info p {
         font-size: 30px;
         text-align: left; }
-      /* line 614, site.css.scss */
+      /* line 606, site.css.scss */
       .cloud3 .info a,
       .cloud4 .info a {
         font-size: 30px; } }
 
-/* line 620, site.css.scss */
+/* line 612, site.css.scss */
 .cloud2 {
   margin-top: -650px;
   padding-top: 150px;
@@ -995,121 +989,121 @@ h1 {
   background-size: 120%;
   position: relative;
   z-index: 2; }
-  /* line 628, site.css.scss */
+  /* line 620, site.css.scss */
   .cloud2 .left {
     min-width: 10px;
     margin: 20px 50px 0 0; }
-  /* line 632, site.css.scss */
+  /* line 624, site.css.scss */
   .cloud2 .right {
     margin-top: 0; }
-    /* line 634, site.css.scss */
+    /* line 626, site.css.scss */
     .cloud2 .right h2 {
       margin-bottom: 0; }
-  /* line 638, site.css.scss */
+  /* line 630, site.css.scss */
   .cloud2 .logo {
     max-width: 200px;
     min-height: 10px;
     margin: 0; }
   @media (min-width: 900px) {
-    /* line 620, site.css.scss */
+    /* line 612, site.css.scss */
     .cloud2 {
       margin-top: -575px; } }
   @media (min-width: 1100px) {
-    /* line 620, site.css.scss */
+    /* line 612, site.css.scss */
     .cloud2 {
       margin-top: -515px; }
-      /* line 649, site.css.scss */
+      /* line 641, site.css.scss */
       .cloud2 .right {
         margin-top: 40px;
         min-width: 600px; } }
   @media (min-width: 1800px) {
-    /* line 620, site.css.scss */
+    /* line 612, site.css.scss */
     .cloud2 {
       margin-top: -450px; } }
   @media (max-width: 718px) {
-    /* line 659, site.css.scss */
+    /* line 651, site.css.scss */
     .cloud2.cloud .logo {
       margin: 0;
       min-height: 0; }
-    /* line 664, site.css.scss */
+    /* line 656, site.css.scss */
     .cloud2 .info {
       padding: 15px; }
-      /* line 666, site.css.scss */
+      /* line 658, site.css.scss */
       .cloud2 .info .left,
       .cloud2 .info .right {
         min-width: 0;
         padding: 15px; }
-      /* line 671, site.css.scss */
+      /* line 663, site.css.scss */
       .cloud2 .info .left {
         margin: 25px 30px 0; } }
   @media (max-width: 400px) {
-    /* line 678, site.css.scss */
+    /* line 670, site.css.scss */
     .cloud2 .info .logo {
       min-width: 0; }
-    /* line 681, site.css.scss */
+    /* line 673, site.css.scss */
     .cloud2 .info .left {
       margin: 0; } }
   @media (max-width: 300px) {
-    /* line 688, site.css.scss */
+    /* line 680, site.css.scss */
     .cloud2 .info .logo {
       min-width: 0;
       max-width: 115px; } }
-  /* line 694, site.css.scss */
+  /* line 686, site.css.scss */
   .cloud2 .info {
     padding: 20px;
     margin-top: 20px; }
     @media (min-width: 1300px) {
-      /* line 694, site.css.scss */
+      /* line 686, site.css.scss */
       .cloud2 .info {
         margin-top: 180px; } }
 
-/* line 702, site.css.scss */
+/* line 694, site.css.scss */
 .cloud3 {
   background-image: url("/images/HW/cloud3.svg");
   background-repeat: no-repeat;
   background-size: cover; }
-  /* line 707, site.css.scss */
+  /* line 699, site.css.scss */
   .cloud3 .info p {
     padding-bottom: 20px;
     text-align: left; }
-  /* line 711, site.css.scss */
+  /* line 703, site.css.scss */
   .cloud3 .info a {
     border-color: #2a5e51;
     color: #2a5e51;
     background: none; }
-  /* line 716, site.css.scss */
+  /* line 708, site.css.scss */
   .cloud3 .info a:hover {
     background-color: #52bfa8;
     border-color: #52bfa8;
     color: #fff; }
-  /* line 724, site.css.scss */
+  /* line 716, site.css.scss */
   .cloud3 .cloud3 .info p {
     text-align: left; }
 
-/* line 731, site.css.scss */
+/* line 723, site.css.scss */
 .cloud4 {
   background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
   border-bottom: 1px solid #DB8168;
   background-size: cover; }
-  /* line 736, site.css.scss */
+  /* line 728, site.css.scss */
   .cloud4 a {
     border-color: #52bfa8;
     background-color: #52bfa8;
     color: #f2f1dc; }
-  /* line 741, site.css.scss */
+  /* line 733, site.css.scss */
   .cloud4 a:hover {
     background-color: #f2f1dc;
     border-color: #f2f1dc;
     color: #52bfa8; }
 
 @media (max-width: 500px) {
-  /* line 748, site.css.scss */
+  /* line 740, site.css.scss */
   .cloud3,
   .cloud4 {
     background-size: cover; } }
 @media (min-width: 1000px) {
-  /* line 754, site.css.scss */
+  /* line 746, site.css.scss */
   .cloud3,
   .cloud4 {
     background-size: cover; } }
