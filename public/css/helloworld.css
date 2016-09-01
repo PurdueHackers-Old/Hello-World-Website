@@ -618,7 +618,7 @@ h1 {
     position: fixed;
     text-align: center;
     right: 20px;
-    top: 20px; }
+    top: 60px; }
   @media (max-width: 900px) {
     /* line 210, site.css.scss */
     .navHome {
