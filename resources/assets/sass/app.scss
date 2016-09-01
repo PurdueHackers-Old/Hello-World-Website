@@ -442,8 +442,8 @@ ul {
   display: inline-block;
   color: $redLight;
   font-size: 10px;
-	border-top: 1px solid $redLight;
 	padding: 10px;
+	background: $cream;
 	li {
 		margin: 0;
 		p, img {
@@ -746,6 +746,8 @@ $color3: #f2f1dc;
   background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
   background-size: cover;
+	border-bottom: 1px solid $redLight;
+
   a {
     border-color: $teal;
     background-color: $teal;
