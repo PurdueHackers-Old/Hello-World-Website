@@ -9,7 +9,7 @@
 	<div class="panel panel-default">
 		<form method="post" action="/member/{{ $member->id }}" enctype="multipart/form-data" class="panel-body validate">
 			{!! csrf_field() !!}
-			<p>Required fields are marked with an *</p>
+			<p>Fields marked with an * are required</p>
 			<label for="memberName">Full Name * </label>
 			<input type="text" name="memberName" id="memberName" placeholder="Full Name" value="{{ $member->name }}" class="form-control" data-bvalidator="required" data-bvalidator-msg="Please enter your full name">
 			<br>
