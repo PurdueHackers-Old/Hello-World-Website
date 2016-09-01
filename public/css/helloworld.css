@@ -819,7 +819,7 @@ h1 {
     margin: 5px 0 0; }
   /* line 441, site.css.scss */
   .footer .ph {
-    max-width: 25px;
+    max-width: 20px;
     margin: 0 4px -7px; }
   /* line 445, site.css.scss */
   .footer .ph:hover {
@@ -829,9 +829,9 @@ h1 {
     .footer {
       font-size: 7px; } }
   /* line 451, site.css.scss */
-  .footer .badge {
+  .footer .badgehw {
     margin: 0 4px -7px;
-    max-width: 25px; }
+    max-width: 20px; }
 
 /* line 456, site.css.scss */
 .timeline {
