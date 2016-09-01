@@ -2,10 +2,12 @@
 
 @section("content")
 
+@if (session()->get('authenticated_member') != "true")
 <div class="navHome">
 	<a href="/join" class="button btn-lg link-btn" style="margin-right: 100px;">Sign Up</a>
 	<a href="/login" class="button btn-lg link-btn">Log In</a>
 </div>
+@endif
 
 <div class="welcome">
 	<div class="left">
@@ -14,7 +16,11 @@
 	<div class="right">
 		<h1>Hello World</h1>
 		<h2>A weekend dedicated to introduce you to a world of technology</h2>
+		@if (session()->get('authenticated_member') == "true")
+		<a href="/apply/1" class="button btn-lg link-btn">Sign Up</a>
+		@else
 		<a href="/join" class="button btn-lg link-btn">Sign Up</a>
+		@endif
 	</div>
 </div>
 
