@@ -34,7 +34,7 @@
 	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css">
 
     </head>
-    <body {{ ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' }}>
+    <body {!! ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' !!}>
 
 	    @if (session()->get('authenticated_member') == "true")
 	    	@include('navbar')
