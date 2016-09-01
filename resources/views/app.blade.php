@@ -36,9 +36,7 @@
     </head>
     <body {!! ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' !!}>
 
-	    @if (session()->get('authenticated_member') == "true")
-	    	@include('navbar')
-	    @endif
+    	@include('navbar')
 
 		@if (session()->has('msg'))
 		<div class='container' style="margin-top: 60px;">
