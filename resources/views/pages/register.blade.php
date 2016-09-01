@@ -3,7 +3,7 @@
 @section("content")
 
 <div class="section"><div class='section-container'>
-	<h3>Join {{ env('ORG_NAME') }}</h3>
+	<h3>Register for {{ env('ORG_NAME') }}</h3>
 	<div class="panel panel-default">
 		<form method="post" action="/join" class="panel-body validate">
 			{!! csrf_field() !!}
