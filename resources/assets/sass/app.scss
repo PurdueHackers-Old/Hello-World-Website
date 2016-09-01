@@ -19,7 +19,9 @@ p, a {
 }
 
 html, body {
-
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 #pageWrap { /* Pushes footer to bottom */
@@ -71,21 +73,28 @@ a {
 		}
 	}
 body {
-  background-color: $color1;
-  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$color1, endColorstr=$color2);
-  background-image: -moz-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
-  background-image: linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
-  background-image: -webkit-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
-  background-image: -o-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
-  background-image: -ms-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
-  background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%,$color1), color-stop(25%, $color2),color-stop(100%, $color3));
-  background-repeat: no-repeat;
-  background-attachment: center;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	&.index {
+		background-color: $color1;
+		filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$color1, endColorstr=$color2);
+		background-image: -moz-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+		background-image: linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+		background-image: -webkit-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+		background-image: -o-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+		background-image: -ms-linear-gradient(top, $color1 0%, $color2 25%, $color3 100%);
+		background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%,$color1), color-stop(25%, $color2),color-stop(100%, $color3));
+		background-repeat: no-repeat;
+		background-attachment: center;
+		background-position: center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
+	}
+	&.notIndex {
+		background-color: $teal;
+		height: 100%;
+	}
   text-align: center;
   font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
