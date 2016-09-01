@@ -144,6 +144,7 @@ h1 {
   background-image: url("/images/HW/stars.svg");
   background-repeat: no-repeat;
   background-size: cover;
+	padding-top: 50px;
 }
 @media (max-width: 719px) {
   .welcome {
@@ -253,6 +254,9 @@ h1 {
       padding: 20px;
     }
   }
+	&.cloud4 {
+		margin-top: -100px;
+	}
 }
 .cloud1 {
   background-image: url("/images/HW/cloud1.svg");
