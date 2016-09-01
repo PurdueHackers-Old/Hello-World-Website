@@ -15,7 +15,11 @@
 	</div>
 	<div class="right">
 		<h1>Hello World</h1>
-		<h2>A weekend dedicated to introduce you to a world of technology</h2>
+		<h2>A weekend dedicated to introduce you to a world of technology
+		<br>
+		<br>
+		October 15-16
+		</h2>
 		@if (session()->get('authenticated_member') == "true")
 		<a href="/apply/1" class="button btn-lg link-btn">Sign Up</a>
 		@else

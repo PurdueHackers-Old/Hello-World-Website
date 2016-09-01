@@ -93,7 +93,6 @@ body {
 	}
 	&.notIndex {
 		background-color: $teal;
-		height: 100%;
 	}
   text-align: center;
   font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -405,7 +404,6 @@ h1 {
 .cloud4 {
   background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
-  border-bottom: 1px solid $redLight;
   background-size: cover;
   a {
     border-color: $teal;
@@ -430,15 +428,27 @@ h1 {
     background-size: cover;
   }
 }
-
+ul {
+	&.footer {
+		margin: 0;
+	}
+}
 .footer {
   vertical-align: center;
   align-items: center;
   display: inline-block;
   color: $redLight;
   font-size: 10px;
-  min-height: 30px;
+	border-top: 1px solid $redLight;
+	padding: 10px;
+	li {
+		margin: 0;
+		p, img {
 
+			margin: 0;
+		}
+
+	}
 
   .ph {
     max-width: 20px;
@@ -732,7 +742,6 @@ $color3: #f2f1dc;
 .cloud4 {
   background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
-  border-bottom: 1px solid $redLight;
   background-size: cover;
   a {
     border-color: $teal;

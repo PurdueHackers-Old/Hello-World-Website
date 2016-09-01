@@ -40,8 +40,6 @@
 	    	@include('navbar')
 	    @endif
 
-		<div id="pageWrap">
-
 		@if (session()->has('msg'))
 		<div class='container' style="margin-top: 60px;">
 			<div class="alert alert-success" role="alert">{{ session()->get('msg') }}</div>
@@ -57,7 +55,6 @@
 			@yield('content')
 		@endif
 
-		</div>
 
 		@include('footer')
 
