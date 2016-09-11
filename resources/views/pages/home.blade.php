@@ -87,12 +87,17 @@
 	<h1>FAQ</h1>
 	<div class="faq-left clearfix">
 		<div class='faq-sec'>
-			<p class="subhead">What is a hackathon?</p>
+			<p class="subhead">What is a Hello World?</p>
 			<p>
 				Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.
 				<br><br>
 				Over the course of one weekend you get to learn from upperclassmen mentors, follow beginning-to-end programming tutorials, and work with your classmates on a project of your choosing!
 
+			</p>
+		</div>
+		<div class='faq-sec'>
+			<p class="subhead">What is a hackathon?</p>
+			<p>A hackathon is a specialized event focused on building technical projects from scratch over a small period of time. Many students have found these marathon events to be a great way to learn how to code.
 			</p>
 		</div>
 		<div class='faq-sec'>
