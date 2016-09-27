@@ -19,8 +19,16 @@ class Event extends Model {
 		return $this->belongsToMany('App\Models\Member');
 	}
 	
+	public function applications() {
+		return $this->hasMany('App\Models\Application');
+	}
+	
 	public function date() {
 		return $this->event_time->format('Y-m-d');
+	}
+	
+	public function dateMonthDay() {
+		return $this->event_time->format('M j');
 	}
 	
 	public function dateFriendly() {

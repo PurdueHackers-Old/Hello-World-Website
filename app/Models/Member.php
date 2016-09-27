@@ -11,6 +11,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model {
+	
+	protected $dates = [
+        'created_at',
+        'updated_at',
+        'setupEmailSent'
+    ];
 
 	public function major() {
 		return $this->hasOne('App\Models\Major','id','major_id');
@@ -22,6 +28,10 @@ class Member extends Model {
 	
 	public function events() {
 		return $this->belongsToMany('App\Models\Event');
+	}
+	
+	public function publicEventCount() {
+		return $this->events()->where('privateEvent',false)->get()->count();
 	}
 	
 	public function applications() {

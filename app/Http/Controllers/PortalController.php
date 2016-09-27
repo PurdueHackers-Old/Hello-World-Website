@@ -10,7 +10,9 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use DB;
+use Mail;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
@@ -58,11 +60,15 @@ class PortalController extends Controller {
 			}
 			
 			foreach($matchingMembers as $member) {
-				if($member->password == $passwordMD5) {
+				if(Hash::check($password, $member->password) || $member->password == $passwordMD5) {
 					$this->setAuthenticated($request, $member->id, $member->name);
 					
-					// Admin
-					if ($member->admin) {
+					if (Hash::needsRehash($member->password)) { // Check If Password Needs Rehash
+						$member->password = Hash::make($password);
+						$member->save();
+					}
+					
+					if ($member->admin) { // Admin Accounts
 						$request->session()->put('authenticated_admin', 'true');
 					}
 					
@@ -99,7 +105,7 @@ class PortalController extends Controller {
 		$gradYear = $request->input('gradYear');
 		
 		if($memberName=="" || $email=="" || $password=="" || $gradYear=="") {
-			$request->session()->flash('msg', 'Please fill our all fields.');
+			$request->session()->flash('msg', 'Please enter all fields.');
 			return $this->getJoin();
 		}
 		
@@ -122,7 +128,7 @@ class PortalController extends Controller {
 		$member = new Member;
 		$member->name = $memberName;
 		$member->email = $email;
-		$member->password = md5($password);
+		$member->password = Hash::make($password);
 		if(strpos($email, ".edu") !== false) {
 			$member->email_edu = $email;
 		}
@@ -137,6 +143,10 @@ class PortalController extends Controller {
 	
 	public function isAuthenticated($request) {
 		return $request->session()->get('authenticated_member') == "true";
+	}
+	
+	public function isAdmin($request) {
+		return $request->session()->get('authenticated_admin') == "true";
 	}
 	
 	public function getAuthenticated($request) {
@@ -169,7 +179,10 @@ class PortalController extends Controller {
 	/////////////////////////////// Viewing Members ///////////////////////////////
 	
 	public function getMembers() {
-		$members = Member::orderBy('name')->get();
+		$members = Member::with('events')->orderBy('name')->get()->sortByDesc(function($member, $key) {
+			return (100000 * $member->publicEventCount()) - $key;
+		});
+		
 		return view('pages.members',compact("members"));
 	}
 	
@@ -201,27 +214,6 @@ class PortalController extends Controller {
 		$majors = Major::orderByRaw('(id = 1) DESC, name')->get(); // Order by name, but keep first major at top
 		
 		return view('pages.member',compact("member","locations","events","majors"));
-	}
-	
-	public function getReset(Request $request, $memberID, $reset_token) {
-		$member = Member::find($memberID);
-		
-		if(is_null($member)) {
-			$request->session()->flash('msg', 'Error: Member Not Found.');
-			return $this->getIndex();
-		}
-		
-		if($reset_token != $member->reset_token()) {
-			$request->session()->flash('msg', 'Error: Member Not Found.');
-			return $this->getIndex();
-		}
-		
-		$locations = $member->locations()->get();
-		$events = $member->events()->get();
-		$majors = Major::orderByRaw('(id = 1) DESC, name')->get(); // Order by name, but keep first major at top
-		$setPassword = true;
-		
-		return view('pages.member',compact("member","locations","events","majors","setPassword","reset_token"));
 	}
 	
 	/////////////////////////////// Editing Members ///////////////////////////////
@@ -258,7 +250,7 @@ class PortalController extends Controller {
 		
 		// Password
 		if(strlen($password) > 0) {
-			$member->password = md5($password);
+			$member->password = Hash::make($password);
 			$this->setAuthenticated($request,$member->id,$member->name);
 		}
 		
@@ -317,6 +309,57 @@ class PortalController extends Controller {
 		// Return Response
 		$request->session()->flash('msg', 'Profile Saved!');
 		return $this->getMember($request, $memberID);
+	}
+	
+	/////////////////////////////// Password Reset ///////////////////////////////
+	
+	public function getRequestReset(Request $request) {
+		return view('pages.reset');
+	}
+	
+	public function postRequestReset(Request $request) {
+		$email = $request->input('email');
+		
+		$member = Member::where('email',$email)->first();
+		
+		if ($member == NULL) {
+			$request->session()->flash('msg', 'No account was found with that email!');
+			return $this->getRequestReset($request);
+		}
+		
+		$this->emailResetRequest($member);
+		
+		$request->session()->flash('msg', 'A link to reset your password has been sent to your email!');
+		return $this->getRequestReset($request);
+	}
+	
+	public function emailResetRequest($member) {
+		Mail::send('emails.resetRequest', ['member'=>$member], function ($message) use ($member) {
+			$message->from('purduehackers@gmail.com', 'Purdue Hackers');
+			$message->to($member->email);
+			$message->subject("Reset your Purdue Hackers account password");
+		});
+	}
+	
+	public function getReset(Request $request, $memberID, $reset_token) {
+		$member = Member::find($memberID);
+		
+		if(is_null($member)) {
+			$request->session()->flash('msg', 'Error: Member Not Found.');
+			return $this->getIndex();
+		}
+		
+		if($reset_token != $member->reset_token()) {
+			$request->session()->flash('msg', 'Error: Member Not Found.');
+			return $this->getIndex();
+		}
+		
+		$locations = $member->locations()->get();
+		$events = $member->events()->get();
+		$majors = Major::orderByRaw('(id = 1) DESC, name')->get(); // Order by name, but keep first major at top
+		$setPassword = true;
+		
+		return view('pages.member',compact("member","locations","events","majors","setPassword","reset_token"));
 	}
 	
 	
@@ -383,7 +426,6 @@ class PortalController extends Controller {
 	
 	/////////////////////////////// Editing Locations ///////////////////////////////
 	
-/*
 	public function postLocation(AdminRequest $request, $locationID) {
 		$location = Location::find($locationID);
 		
@@ -398,7 +440,6 @@ class PortalController extends Controller {
 		
 		return $this->getLocation($locationID);
 	}
-*/
 	
 	public function postLocationRecordNew(LoggedInRequest $request, $memberID) {
 		$locationName = $request->input("locationName");
@@ -421,7 +462,7 @@ class PortalController extends Controller {
 		$location = Location::firstOrCreate(['name'=>$locationName, 'city'=>$city]);
 		
 		if($location->loc_lat==0) {
-			$this->completeLocation($location);
+			$this->addLocationLatLng($location);
 		}
 		
 		$locationRecord = new LocationRecord;
@@ -435,7 +476,7 @@ class PortalController extends Controller {
 		return $this->getMember($request, $memberID);
 	}
 	
-	public function completeLocation($location) {
+	public function addLocationLatLng($location) {
 		//$location->loc_lat = rand(0, 90);
 		//$location->loc_lng = rand(0, 360);
 		
@@ -473,19 +514,18 @@ class PortalController extends Controller {
 	
 	/////////////////////////////// Viewing Events ///////////////////////////////
 	
-	public function getEvents() {
-		$events = Event::all();
+	public function getEvents(Request $request) {
+		if ($this->isAdmin($request)) {
+			$events = Event::orderBy("event_time")->get();
+		} else {
+			$events = Event::where('privateEvent',false)->orderBy("event_time")->get();
+		}
 		$checkin = false;
 		return view('pages.events',compact("events","checkin"));
 	}
 	
 	public function getEvent(Request $request, $eventID) {
-		$event = Event::find($eventID);
-		
-		if(is_null($event)) {
-			$request->session()->flash('msg', 'Error: Event Not Found.');
-			return $this->getEvents();
-		}
+		$event = Event::findOrFail($eventID);
 		
 		$members = $event->members()->get();
 		
@@ -495,49 +535,28 @@ class PortalController extends Controller {
 		if ($authenticatedMember != null) {
 			$hasRegistered = count($authenticatedMember->applications()->where('event_id',$eventID)->get()) > 0;
 		}
-		
-		return view('pages.event',compact("event","members","canApply","canRegister","hasRegistered"));
-	}
-	
-	/////////////////////////////// Event Checkin System ///////////////////////////////
-	
-	public function getCheckinEvents(AdminRequest $request) {
-		$events = Event::all();
-		$checkin = true;
-		return view('pages.events',compact("events","checkin"));
-	}
-	
-	public function getCheckin(AdminRequest $request, $eventID) {
-		$event = Event::find($eventID);
-		
-		if(is_null($event)) {
-			$request->session()->flash('msg', 'Error: Event Not Found.');
-			return $this->getEvents();
+		$applications = [];
+		if ($request->session()->get('authenticated_admin') == "true") {
+			$applications = $event->applications()->get();
 		}
 		
-		return view('pages.checkin',compact("event","eventID"));
+		return view('pages.event',compact("event","members","canApply","canRegister","hasRegistered","applications"));
 	}
 	
-	public function getCheckinMember(AdminRequest $request, $eventID, $memberID) {
-		$event = Event::find($eventID);
-		$member = Member::find($memberID);
+	public function getEventGraphs(AdminRequest $request, $eventID) {
+		$event = Event::findOrFail($eventID);
 		
-		if(is_null($event) || is_null($member)) {
-			return "false";
-		}
+		$members = $event->members()->get();
+		$applications = $event->applications()->get();
 		
-		if($event->members()->find($member->id)) {
-			return "repeat";
-		}
-		$event->members()->attach($member->id);
-		
-		return "true";
+		return view('pages.event-graphs',compact("event","members","applications"));
 	}
 	
-	/////////////////////////////// Managing Events ///////////////////////////////
+	/////////////////////////////// Editing Events ///////////////////////////////
 	
 	public function postEvent(EditEventRequest $request, $eventID) {
 		$eventName = $request->input("eventName");
+		$eventPrivate = $request->input("privateEvent")=="true" ? true : false;
 		$eventDate = $request->input("date");
 		$eventHour = $request->input("hour");
 		$eventMinute = $request->input("minute");
@@ -558,6 +577,7 @@ class PortalController extends Controller {
 		
 		// Edit Event
 		$event->name = $eventName;
+		$event->privateEvent = $eventPrivate;
 		$event->event_time = new Carbon($eventDate." ".$eventHour.":".$eventMinute);
 		$event->location = $eventLocation;
 		$event->facebook = $eventFB;
@@ -579,6 +599,100 @@ class PortalController extends Controller {
 	public function getEventDelete($eventID) {
 		Event::findOrFail($eventID)->delete();
 		return $this->getEvents();
+	}
+	
+	/////////////////////////////// Event Checkin System ///////////////////////////////
+	
+	public function getCheckinEvents(AdminRequest $request) {
+		$events = Event::orderBy("event_time")->get();
+		$checkin = true;
+		return view('pages.events',compact("events","checkin"));
+	}
+	
+	public function getCheckin(AdminRequest $request, $eventID) {
+		$event = Event::find($eventID);
+		
+		if(is_null($event)) {
+			$request->session()->flash('msg', 'Error: Event Not Found.');
+			return $this->getEvents();
+		}
+		
+		return view('pages.checkin',compact("event","eventID"));
+	}
+	
+	public function postCheckinMember(AdminRequest $request) {
+		$successResult = "true";
+		$memberName = $request->input("memberName");
+		$memberEmail = $request->input("memberEmail");
+		$event = Event::find($request->input("eventID"));
+		
+		if ($request->input("memberID") > 0) { // Search By memberID
+			$member = Member::find($request->input("memberID"));
+			if ($memberEmail != $member->email) {
+				$member = null;
+			}
+		} else { $member = null; }
+		
+		if ($member == null) { // Search By Name
+			$member = Member::where('name',$memberName)->where('email',$memberEmail)->first();
+		}
+		
+		if (strlen($memberName)<2 || !filter_var($memberEmail, FILTER_VALIDATE_EMAIL)) { // Validate Input
+			return "invalid";
+		}
+		
+		if (is_null($event)) { // Verify Event Exists
+			return "false";
+		}
+		
+		if (is_null($member)) { // New Member
+			$member = new Member;
+			
+			if (Member::where('email',$memberEmail)->first()) {
+				return "exists";
+			}
+			
+			$member->name = $memberName;
+			$member->email = $memberEmail;
+			
+			$member->save();
+			$successResult = "new";
+			$this->emailAccountCreated($member, $event);
+		}
+		
+		if ($event->members()->find($member->id)) { // Check if Repeat
+			return "repeat";
+		}
+		$event->members()->attach($member->id); // Save Record
+		
+		return $successResult;
+	}
+	
+	/////////////////////////////// Account Setup Emails ///////////////////////////////
+	
+	public function getSetupAccountEmails(AdminRequest $request) { // Batch email all accounts that have not been setup, prompting them to setup.
+		$members = Member::where('graduation_year',0)->get();
+		
+		$nowDate = Carbon::now();
+		
+		foreach ($members as $member) {
+			if ($member->setupEmailSent->diffInDays($nowDate) > 30) {
+				$this->emailAccountCreated($member, $member->events()->first());
+			}
+		}
+		
+		$request->session()->flash('msg', 'Success, setup account emails have been sent!');
+		return $this->getIndex();
+	}
+	
+	public function emailAccountCreated($member, $event) {
+		Mail::send('emails.accountCreated', ['member'=>$member, 'event'=>$event], function ($message) use ($member) {
+			$message->from('purduehackers@gmail.com', 'Purdue Hackers');
+			$message->to($member->email);
+			$message->subject("Welcome ".$member->name." to Purdue Hackers!");
+		});
+		$member->setupEmailSent = Carbon::now();
+		$member->save();
 	}
 	
 	/////////////////////////////// Applications ///////////////////////////////
@@ -621,6 +735,13 @@ class PortalController extends Controller {
 		
 		$request->session()->flash('msg', 'Success, your application has been submitted!');
 		return $this->getMember($request, $member->id);
+	}
+	
+	public function getApplications(AdminRequest $request, $eventID=-1) {
+		$event = Event::findOrFail($eventID);
+		$applications = $event->applications()->get();
+		
+		return view('pages.applications',compact("event","applications"));
 	}
 
 	/////////////////////////////// Helper Functions ///////////////////////////////
