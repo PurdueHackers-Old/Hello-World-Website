@@ -23,7 +23,7 @@
 			<label for="gradYear">Graduation Year</label>
 			<input type="number" name="gradYear" id="gradYear" placeholder="Graduation Year" class="form-control" data-bvalidator="required,number" data-bvalidator-msg="A graduation year is required">
 			<br>
-			<input type="submit" value="Join" class="btn btn-primary">
+			<input type="submit" value="Create Account" class="btn btn-primary">
 		</form>
 	</div>
 </div></div>
