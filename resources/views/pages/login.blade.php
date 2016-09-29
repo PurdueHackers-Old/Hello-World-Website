@@ -16,6 +16,7 @@
 			<br><br>
 			<input type="submit" value="Sign In" class="btn btn-primary">
 		</form>
+		<div class="panel-body">Forgot Your Password? <a href="/request-reset">Click Here</a></div>
 	</div>
 </div></div>
 
