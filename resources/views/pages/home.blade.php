@@ -52,27 +52,31 @@
 	<div class="contain">
 		<img src="images/HW/timeline.svg">
 		<div class='right'>
-			<a class="link-btn" href="#">
-				<p class='subhead'>September 6th</p>
-				TBA
+			<a class="link-btn" href="https://www.facebook.com/events/1126824020720467/">
+				<p class='subhead'>CSWN Presents</p>
+				<p>Intro to Angular Web Development</p>
+				<p class='subhead'>October 12 6:30 LWSN B155</p>
+			</a><br><br>
+			<a class="link-btn" href="https://www.facebook.com/events/1236740129698752/">
+				<p class='subhead'>iOS Club Presents</p>
+				iOS Development with MapKit Workshop
+				<p class='subhead'>October 13 6:30 LWSN B155</p>
+			</a><br><br>
+			<a class="link-btn" href="https://www.facebook.com/events/1792876254259548/">
+				<p class='subhead'>ACM SigApp Presents</p>
+				Hello Android
+				<p class='subhead'>October 14 6:00 LWSN B151</p>
+			</a><br><br>
+			<a class="link-btn" href="https://www.facebook.com/events/1740620579522460/">
+				<p class='subhead'>WebDev Club Presents</p>
+				Web Development Basics Workshop
+				<p class='subhead'>October 14 7:30 LWSN B155</p>
 
-			</a><br><br>
-			<a class="link-btn" href="#">
-				<p class='subhead'>September 7th</p>
-				TBA
-			</a><br><br>
-			<a class="link-btn" href="#">
-				<p class='subhead'>September 8th</p>
-				TBA
-			</a><br><br>
-			<a class="link-btn" href="#">
-				<p class='subhead'>September 9th</p>
-				TBA
 			</a>
 			<br><br><br>
-			<a class="link-btn" href="#">
+			<a class="link-btn" href="https://www.facebook.com/events/1648316605480897/">
 
-				<p class='subhead'>September 10-11th</p>
+				<p class='subhead'>October 15-16th</p>
 				Hello World
 			</a>
 		</div>
@@ -87,7 +91,7 @@
 	<h1>FAQ</h1>
 	<div class="faq-left clearfix">
 		<div class='faq-sec'>
-			<p class="subhead">What is a Hello World?</p>
+			<p class="subhead">What is Hello World?</p>
 			<p>
 				Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.
 				<br><br>
@@ -164,5 +168,13 @@
 		<a class="link-btn" href="/join">Sign Up</a>
 	</div>
 </div>
+
+@stop
+
+@section("customJS")
+
+<script>
+$('#div').asdf();
+</script>
 
 @stop

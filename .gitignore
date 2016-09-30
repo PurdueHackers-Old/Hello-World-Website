@@ -8,3 +8,5 @@ Homestead.json
 .env.bluemix
 .env.local
 .env.mt
+.DS_Store
+composer.phar

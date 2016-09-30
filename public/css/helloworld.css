@@ -469,7 +469,8 @@ a {
     color: #f2f1dc;
     text-decoration: none;
     transition: color 0.1s linear;
-    background: #ee3e23; }
+    background: #ee3e23;
+    max-width: 200px; }
     /* line 70, site.css.scss */
     a.link-btn:hover {
       background: #f2f1dc;
