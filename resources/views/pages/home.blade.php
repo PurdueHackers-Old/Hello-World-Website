@@ -52,6 +52,8 @@
 
 	<div class="contain">
 		<p class="al-l">Leading up to Hello World will be a week of workshops giving you a heads up on the different technologies you can learn and apply during Hello World.</p>
+		<br>
+		<p class='subhead'>Click each event to RSVP on Facebook</p>
 		<br><br>
 		<img id="timeline-img" src="images/HW/timeline.svg">
 		<div class='right'>
