@@ -48,9 +48,12 @@
 
 
 <div class="timeline">
-	<h1>Pre-Event Schedule</h1>
+	<h1>Workshop Schedule</h1>
+
 	<div class="contain">
-		<img src="images/HW/timeline.svg">
+		<p class="al-l">Leading up to Hello World will be a week of workshops giving you a heads up on the different technologies you can learn and apply during Hello World.</p>
+		<br><br>
+		<img id="timeline-img" src="images/HW/timeline.svg">
 		<div class='right'>
 			<a class="link-btn" href="https://www.facebook.com/events/1126824020720467/">
 				<p class='subhead'>CSWN Presents</p>
@@ -76,8 +79,10 @@
 			<br><br><br>
 			<a class="link-btn" href="https://www.facebook.com/events/1648316605480897/">
 
-				<p class='subhead'>October 15-16th</p>
+				<p class='subhead'>Purdue Hackers Presents</p>
 				Hello World
+				<p class='subhead'>October 15-16th</p>
+
 			</a>
 		</div>
 	</div>
@@ -159,7 +164,7 @@
 <div class="cloud4 cloud">
 	<div class="info clearfix">
 		<h2>Mentors</h2>
-		<p>
+		<p class='al-l'>
 			Receiving guidance from mentors is a crucial part of being successful at your first hackathon. At Hello World there will be mentors who specialize in a wide variety of technologies to help you when needed.
 			<br><br>
 			The best way to learn is to surround yourself by experts in that domain, which is why thousands of students have found hackathons to be the perfect venues for learning.
@@ -174,7 +179,28 @@
 @section("customJS")
 
 <script>
-$('#div').asdf();
+$(function() {
+  if($(window).width() < 500) {
+    $('#timeline-img').each(function() {
+      $(this).attr("src", $(this).attr("src").replace("timeline.svg", "timeline-m.svg"));
+    });
+  }
+});
+$(window).resize(function() {
+  if($(window).width() < 500) {
+    $('#timeline-img').each(function() {
+      $(this).attr("src", $(this).attr("src").replace("timeline.svg", "timeline-m.svg"));
+    });
+  }
+});
+$(window).resize(function() {
+  if($(window).width() >= 500) {
+    $('#timeline-img').each(function() {
+      $(this).attr("src", $(this).attr("src").replace("timeline-m.svg", "timeline.svg"));
+    });
+  }
+});
+
 </script>
 
 @stop

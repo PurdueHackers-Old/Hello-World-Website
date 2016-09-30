@@ -864,116 +864,124 @@ ul.footer {
     margin: 0 auto;
     padding: 20px;
     vertical-align: top; }
-  /* line 480, site.css.scss */
+    @media (min-width: 500px) {
+      /* line 474, site.css.scss */
+      .timeline .contain {
+        max-width: 500px; } }
+  /* line 484, site.css.scss */
   .timeline img {
     width: 50px;
     display: inline; }
-  /* line 484, site.css.scss */
+    @media (min-width: 500px) {
+      /* line 484, site.css.scss */
+      .timeline img {
+        width: 90px; } }
+  /* line 493, site.css.scss */
   .timeline .right {
     padding-left: 20px;
     margin: -25px 0 0; }
-  /* line 488, site.css.scss */
+  /* line 497, site.css.scss */
   .timeline a {
     background: none;
     border: none;
     text-align: left;
     display: block; }
-    /* line 493, site.css.scss */
+    /* line 502, site.css.scss */
     .timeline a p {
       text-align: left;
       display: block; }
-      /* line 496, site.css.scss */
+      /* line 505, site.css.scss */
       .timeline a p.subhead {
         display: block;
         line-height: 38px; }
 
-/* line 503, site.css.scss */
+/* line 512, site.css.scss */
 .subhead {
   text-transform: uppercase;
   display: block;
   font-size: 10px; }
 
-/* line 508, site.css.scss */
+/* line 517, site.css.scss */
 .faq {
   text-align: center;
   padding: 120px 120px;
   display: block; }
   @media (max-width: 700px) {
-    /* line 508, site.css.scss */
+    /* line 517, site.css.scss */
     .faq {
       padding: 120px 20px; } }
-  /* line 516, site.css.scss */
+  /* line 525, site.css.scss */
   .faq .subhead {
     font-size: 15px;
     color: #6D6D67; }
-  /* line 520, site.css.scss */
+  /* line 529, site.css.scss */
   .faq .faq-sec {
     text-align: left; }
   @media (min-width: 1200px) {
-    /* line 508, site.css.scss */
+    /* line 517, site.css.scss */
     .faq {
       padding: 0 10%; } }
 
-/* line 527, site.css.scss */
+/* line 536, site.css.scss */
 .faq-left {
   float: left; }
 
-/* line 530, site.css.scss */
+/* line 539, site.css.scss */
 .faq-right {
   float: right; }
 
-/* line 533, site.css.scss */
+/* line 542, site.css.scss */
 .faq-left, .faq-right {
   display: inline-block;
   max-width: 40%;
   min-width: 150px;
   padding: 20px; }
   @media (max-width: 700px) {
-    /* line 533, site.css.scss */
+    /* line 542, site.css.scss */
     .faq-left, .faq-right {
       float: none;
       display: block;
       max-width: none; } }
 
 /* gradient */
-/* line 568, site.css.scss */
+/* line 577, site.css.scss */
 .cloud {
   margin-top: -275px;
   min-height: 800px; }
-  /* line 571, site.css.scss */
+  /* line 580, site.css.scss */
   .cloud.cloud3 {
     margin-top: 100px; }
-  /* line 574, site.css.scss */
+  /* line 583, site.css.scss */
   .cloud .info {
     text-align: center;
     margin-top: 250px;
     display: inline-block; }
     @media (min-width: 1500px) {
-      /* line 574, site.css.scss */
+      /* line 583, site.css.scss */
       .cloud .info {
         margin-top: 20%; } }
   @media (max-width: 718px) {
-    /* line 585, site.css.scss */
+    /* line 594, site.css.scss */
     .cloud .info {
       padding: 20px; } }
   @media (min-width: 1500px) {
-    /* line 568, site.css.scss */
+    /* line 577, site.css.scss */
     .cloud {
       min-height: 900px; } }
   @media (min-width: 1900px) {
-    /* line 568, site.css.scss */
+    /* line 577, site.css.scss */
     .cloud {
       min-height: 1000px; } }
   @media (min-width: 2000px) {
-    /* line 568, site.css.scss */
+    /* line 577, site.css.scss */
     .cloud {
       min-height: 1200px; } }
   @media (min-width: 2200px) {
-    /* line 568, site.css.scss */
+    /* line 577, site.css.scss */
     .cloud {
       min-height: 1300px; } }
 
-/* line 606, site.css.scss */
+/* line 615, site.css.scss */
 .cloud1 {
   background-image: url("/images/HW/cloud1.svg");
   background-repeat: no-repeat;
@@ -982,30 +990,30 @@ ul.footer {
   z-index: 1;
   margin-top: -100px; }
 
-/* line 616, site.css.scss */
+/* line 625, site.css.scss */
 .cloud3 .info,
 .cloud4 .info {
   max-width: 300px; }
   @media (min-width: 1800px) {
-    /* line 616, site.css.scss */
+    /* line 625, site.css.scss */
     .cloud3 .info,
     .cloud4 .info {
       max-width: 50%; }
-      /* line 620, site.css.scss */
+      /* line 629, site.css.scss */
       .cloud3 .info h2,
       .cloud4 .info h2 {
         font-size: 45px; }
-      /* line 623, site.css.scss */
+      /* line 632, site.css.scss */
       .cloud3 .info p,
       .cloud4 .info p {
         font-size: 30px;
         text-align: left; }
-      /* line 627, site.css.scss */
+      /* line 636, site.css.scss */
       .cloud3 .info a,
       .cloud4 .info a {
         font-size: 30px; } }
 
-/* line 633, site.css.scss */
+/* line 642, site.css.scss */
 .cloud2 {
   margin-top: -650px;
   padding-top: 150px;
@@ -1014,121 +1022,124 @@ ul.footer {
   background-size: 120%;
   position: relative;
   z-index: 2; }
-  /* line 641, site.css.scss */
+  /* line 650, site.css.scss */
   .cloud2 .left {
     min-width: 10px;
     margin: 20px 50px 0 0; }
-  /* line 645, site.css.scss */
+  /* line 654, site.css.scss */
   .cloud2 .right {
     margin-top: 0; }
-    /* line 647, site.css.scss */
+    /* line 656, site.css.scss */
     .cloud2 .right h2 {
       margin-bottom: 0; }
-  /* line 651, site.css.scss */
+  /* line 660, site.css.scss */
   .cloud2 .logo {
     max-width: 200px;
     min-height: 10px;
     margin: 0; }
   @media (min-width: 900px) {
-    /* line 633, site.css.scss */
+    /* line 642, site.css.scss */
     .cloud2 {
       margin-top: -575px; } }
   @media (min-width: 1100px) {
-    /* line 633, site.css.scss */
+    /* line 642, site.css.scss */
     .cloud2 {
       margin-top: -515px; }
-      /* line 662, site.css.scss */
+      /* line 671, site.css.scss */
       .cloud2 .right {
         margin-top: 40px;
         min-width: 600px; } }
   @media (min-width: 1800px) {
-    /* line 633, site.css.scss */
+    /* line 642, site.css.scss */
     .cloud2 {
       margin-top: -450px; } }
   @media (max-width: 718px) {
-    /* line 672, site.css.scss */
+    /* line 681, site.css.scss */
     .cloud2.cloud .logo {
       margin: 0;
       min-height: 0; }
-    /* line 677, site.css.scss */
+    /* line 686, site.css.scss */
     .cloud2 .info {
       padding: 15px; }
-      /* line 679, site.css.scss */
+      /* line 688, site.css.scss */
       .cloud2 .info .left,
       .cloud2 .info .right {
         min-width: 0;
         padding: 15px; }
-      /* line 684, site.css.scss */
+      /* line 693, site.css.scss */
       .cloud2 .info .left {
         margin: 25px 30px 0; } }
   @media (max-width: 400px) {
-    /* line 691, site.css.scss */
+    /* line 700, site.css.scss */
     .cloud2 .info .logo {
       min-width: 0; }
-    /* line 694, site.css.scss */
+    /* line 703, site.css.scss */
     .cloud2 .info .left {
       margin: 0; } }
   @media (max-width: 300px) {
-    /* line 701, site.css.scss */
+    /* line 710, site.css.scss */
     .cloud2 .info .logo {
       min-width: 0;
       max-width: 115px; } }
-  /* line 707, site.css.scss */
+  /* line 716, site.css.scss */
   .cloud2 .info {
     padding: 20px;
     margin-top: 20px; }
     @media (min-width: 1300px) {
-      /* line 707, site.css.scss */
+      /* line 716, site.css.scss */
       .cloud2 .info {
         margin-top: 180px; } }
 
-/* line 715, site.css.scss */
+/* line 724, site.css.scss */
 .cloud3 {
   background-image: url("/images/HW/cloud3.svg");
   background-repeat: no-repeat;
   background-size: cover; }
-  /* line 720, site.css.scss */
+  /* line 729, site.css.scss */
   .cloud3 .info p {
     padding-bottom: 20px;
     text-align: left; }
-  /* line 724, site.css.scss */
+  /* line 733, site.css.scss */
   .cloud3 .info a {
     border-color: #2a5e51;
     color: #2a5e51;
     background: none; }
-  /* line 729, site.css.scss */
+  /* line 738, site.css.scss */
   .cloud3 .info a:hover {
     background-color: #52bfa8;
     border-color: #52bfa8;
     color: #fff; }
-  /* line 737, site.css.scss */
+  /* line 746, site.css.scss */
   .cloud3 .cloud3 .info p {
     text-align: left; }
 
-/* line 744, site.css.scss */
+/* line 753, site.css.scss */
 .cloud4 {
   background-image: url("/images/HW/cloud4.svg");
   background-repeat: no-repeat;
   background-size: cover;
   border-bottom: 1px solid #DB8168; }
-  /* line 750, site.css.scss */
+  /* line 759, site.css.scss */
   .cloud4 a {
     border-color: #52bfa8;
     background-color: #52bfa8;
     color: #f2f1dc; }
-  /* line 755, site.css.scss */
+  /* line 764, site.css.scss */
   .cloud4 a:hover {
     background-color: #f2f1dc;
     border-color: #f2f1dc;
     color: #52bfa8; }
 
 @media (max-width: 500px) {
-  /* line 762, site.css.scss */
+  /* line 771, site.css.scss */
   .cloud3,
   .cloud4 {
     background-size: cover; } }
 @media (min-width: 1000px) {
-  /* line 768, site.css.scss */
+  /* line 777, site.css.scss */
   .cloud3,
   .cloud4 {
     background-size: cover; } }
+/* line 782, site.css.scss */
+.al-l {
+  text-align: left; }
