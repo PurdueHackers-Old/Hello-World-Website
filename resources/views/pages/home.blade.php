@@ -46,7 +46,7 @@
 	</div>
 </div>
 
-{{--
+
 <div class="timeline">
 	<h1>Pre-Event Schedule</h1>
 	<div class="contain">
@@ -79,7 +79,7 @@
 	</div>
 </div>
 
---}}
+
 
 <br><br><br><br><br>
 
