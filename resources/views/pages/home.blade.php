@@ -51,7 +51,7 @@
 	<h1>Workshop Schedule</h1>
 
 	<div class="contain">
-		<p class="al-l">Leading up to Hello World will be a week of workshops giving you a heads up on the different technologies you can learn and apply during Hello World.</p>
+		<p class="al-l">Leading up to Hello World will be a week of workshops giving you a heads up on the different technologies you can learn and apply during the hackathon.</p>
 		<br>
 		<p class='subhead'>Click each event to RSVP on Facebook</p>
 		<br><br>
