@@ -57,34 +57,32 @@
 		<br><br>
 		<img id="timeline-img" src="images/HW/timeline.svg">
 		<div class='right'>
-			<a class="link-btn" href="https://www.facebook.com/events/1126824020720467/">
+			<a class="link-btn" href="https://www.facebook.com/events/1126824020720467/" target="_blank">
 				<p class='subhead'>CSWN Presents</p>
 				<p>Intro to Angular Web Development</p>
 				<p class='subhead'>October 12 6:30 LWSN B155</p>
 			</a><br><br>
-			<a class="link-btn" href="https://www.facebook.com/events/1236740129698752/">
+			<a class="link-btn" href="https://www.facebook.com/events/1236740129698752/" target="_blank">
 				<p class='subhead'>iOS Club Presents</p>
 				iOS Development with MapKit Workshop
 				<p class='subhead'>October 13 6:30 LWSN B155</p>
 			</a><br><br>
-			<a class="link-btn" href="https://www.facebook.com/events/1792876254259548/">
+			<a class="link-btn" href="https://www.facebook.com/events/1792876254259548/" target="_blank">
 				<p class='subhead'>ACM SigApp Presents</p>
 				Hello Android
 				<p class='subhead'>October 14 6:00 LWSN B151</p>
 			</a><br><br>
-			<a class="link-btn" href="https://www.facebook.com/events/1740620579522460/">
+			<a class="link-btn" href="https://www.facebook.com/events/1740620579522460/" target="_blank">
 				<p class='subhead'>WebDev Club Presents</p>
 				Web Development Basics Workshop
 				<p class='subhead'>October 14 7:30 LWSN B155</p>
 
 			</a>
 			<br><br><br>
-			<a class="link-btn" href="https://www.facebook.com/events/1648316605480897/">
-
+			<a class="link-btn" href="https://www.facebook.com/events/1648316605480897/" target="_blank">
 				<p class='subhead'>Purdue Hackers Presents</p>
 				Hello World
 				<p class='subhead'>October 15-16th</p>
-
 			</a>
 		</div>
 	</div>
@@ -103,7 +101,6 @@
 				Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.
 				<br><br>
 				Over the course of one weekend you get to learn from upperclassmen mentors, follow beginning-to-end programming tutorials, and work with your classmates on a project of your choosing!
-
 			</p>
 		</div>
 		<div class='faq-sec'>
@@ -114,7 +111,6 @@
 		<div class='faq-sec'>
 			<p class="subhead">Who is this event intended for?</p>
 			<p>Students who have never participated in a hackathon before. Hello World will prepare you with everything you need to know as you begin your collegiate hackathon career.
-
 			</p>
 		</div>
 
@@ -140,8 +136,6 @@
 			<p>Start work on your project at the beginning of the hackathon.<br>
 				Use technologies that are freely available for everyone to use.<br>
 ​				 Be respectful. Harassment and abuse are never tolerated.
-
-
 			</p>
 		</div>
 		<div class="faq-sec">
