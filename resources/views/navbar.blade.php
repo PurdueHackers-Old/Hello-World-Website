@@ -18,9 +18,9 @@
 					<li><a href="/join">Sign Up</a></li>
 					<li><a href="/login">Log In</a></li>
 				@endif
+				<li><a href="/resources">Resources</a></li>
 				@if(session()->get('authenticated_admin') == "true")
 					<li><a href="/members">Members</a></li>
-					<li><a href="/map">Map</a></li>
 					<li><a href="/events">Events</a></li>
 					<li><a href="/anvil-wifi">Anvil Wifi</a></li>
 				@endif

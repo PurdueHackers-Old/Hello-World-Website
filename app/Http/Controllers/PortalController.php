@@ -36,6 +36,10 @@ class PortalController extends Controller {
     public function getIndex() {
 		return view('pages.home');
 	}
+    
+    public function getResources() {
+		return view('pages.resources');
+	}
 	
 	/////////////////////////////// Authentication ///////////////////////////////
 	
