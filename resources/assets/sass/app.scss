@@ -476,10 +476,19 @@ ul {
     margin: 0 auto;
     padding: 20px;
     vertical-align: top;
+		@media (min-width: 500px) {
+			max-width: 500px;
+
+		}
   }
   img {
     width: 50px;
     display: inline;
+		@media (min-width: 500px) {
+			width: 90px;
+
+		}
+
   }
   .right {
     padding-left: 20px;
@@ -769,4 +778,52 @@ $color3: #f2f1dc;
   .cloud4 {
     background-size: cover;
   }
+}
+.al-l {
+	text-align: left;
+}
+
+
+
+.day-of {
+	text-align: center;
+	color: rgb(17, 140, 118);
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	.day-of-window {
+		max-width: 500px;
+		min-width: 300px;
+		margin: 0 auto;
+
+		.box {
+			padding: 10px 20px;
+			align-items: middle;
+			width: 100%;
+			display: block;
+			p {
+				float: left;
+				margin: 0;
+				width: 80%;
+				text-align: left;
+
+				&.subtext {
+					float: right;
+					width: 20%;
+					text-align: right;
+
+				}
+			}
+
+
+		}
+		.box:nth-child(odd) {
+			background: rgb(242, 242, 220);
+		}
+		.box:nth-child(even) {
+			background: #E0E0CC;
+		}
+
+	}
+
 }

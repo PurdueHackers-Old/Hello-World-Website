@@ -1143,3 +1143,39 @@ ul.footer {
 /* line 782, site.css.scss */
 .al-l {
   text-align: left; }
+
+/* line 788, site.css.scss */
+.day-of {
+  text-align: center;
+  color: #118c76;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%; }
+  /* line 794, site.css.scss */
+  .day-of .day-of-window {
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto; }
+    /* line 799, site.css.scss */
+    .day-of .day-of-window .box {
+      padding: 10px 20px;
+      align-items: middle;
+      width: 100%;
+      display: block; }
+      /* line 804, site.css.scss */
+      .day-of .day-of-window .box p {
+        float: left;
+        margin: 0;
+        width: 80%;
+        text-align: left; }
+        /* line 810, site.css.scss */
+        .day-of .day-of-window .box p.subtext {
+          float: right;
+          width: 20%;
+          text-align: right; }
+    /* line 820, site.css.scss */
+    .day-of .day-of-window .box:nth-child(odd) {
+      background: #f2f2dc; }
+    /* line 823, site.css.scss */
+    .day-of .day-of-window .box:nth-child(even) {
+      background: #E0E0CC; }

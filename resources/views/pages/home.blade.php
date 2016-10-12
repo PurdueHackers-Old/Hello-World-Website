@@ -90,6 +90,45 @@
 	</div>
 </div>
 
+<div class="day-of">
+  <div class="day-of-window">
+    <h2>Saturday Schedule</h2>
+    <div class="box clearfix">
+      <p>Opening Ceremony</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <h2>Sunday Schedule</h2>
+
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+    <div class="box clearfix">
+      <p>Event 1</p>
+      <p class="subtext">9:45</p>
+    </div>
+</div>
+
 
 
 <br><br><br><br><br>
