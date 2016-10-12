@@ -124,7 +124,7 @@
     </div>
     <div class="box clearfix">
       <p>Talk: Xtern Internships</p>
-      <p class="subtext">LWSN Commons, 6:00pm</p>
+      <p class="subtext">LWSN 1106, 6:00pm</p>
     </div>
     <div class="box clearfix">
       <p>Talk: How the internet works</p>
