@@ -31,7 +31,7 @@
         <link href='//fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 
 	    <!-- Portal Site CSS -->
-	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css">
+	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=2">
 
     </head>
     <body {!! ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' !!}>
