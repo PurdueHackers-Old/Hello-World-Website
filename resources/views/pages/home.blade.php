@@ -83,6 +83,8 @@
 				<p class='subhead'>Purdue Hackers Presents</p>
 				Hello World
 				<p class='subhead'>October 15-16th</p>
+				Check-In
+				<p class='subhead'>Oct 15 9:45am CL50 224</p>
 			</a>
 		</div>
 	</div>
@@ -91,9 +93,18 @@
 <div class="day-of">
   <div class="day-of-window">
     <h2>Saturday Schedule</h2>
+    
+    <div class="box clearfix">
+      <p>Check In</p>
+      <p class="subtext">9:45am, CL50 224</p>
+    </div>
     <div class="box clearfix">
       <p>Opening Ceremony</p>
-      <p class="subtext">9:45</p>
+      <p class="subtext">10:30am, CL50 224</p>
+    </div>
+    <div class="box clearfix">
+      <p>Hacking Starts</p>
+      <p class="subtext">11:00am, LWSN</p>
     </div>
     <div class="box clearfix">
       <p>Event 1</p>
@@ -107,23 +118,16 @@
       <p>Event 1</p>
       <p class="subtext">9:45</p>
     </div>
-    <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
-    </div>
-    <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
-    </div>
+    
     <h2>Sunday Schedule</h2>
-
+    
     <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
+      <p>Hacking Ends</p>
+      <p class="subtext">11:00am</p>
     </div>
     <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
+      <p>Project Expo</p>
+      <p class="subtext">11:30am, LWSN Commons</p>
     </div>
 </div>
 
