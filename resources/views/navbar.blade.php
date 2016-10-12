@@ -11,6 +11,10 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
+				@if (request()->path() == "/")
+					<li><a href="#schedule">Schedule</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				@endif
 				@if(session()->get('authenticated_member') == "true")
 					<li><a href="/member/{{ session()->get('member_id') }}">Profile</a></li>
 					<li><a href="/apply/1">Sign Up</a></li>

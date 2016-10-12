@@ -32,20 +32,20 @@
 	<div class="info clearfix"></div>
 </div>
 
-<div class="cloud2 cloud ">
+<div class="cloud2 cloud">
 	<div class="info clearfix">
 		<div class="left">
 			<img src="images/HW/logo_final_s.png" alt="hello world" class="logo">
 		</div>
 		<div class="right">
 			<h2>What is Hello World?</h2>
-			<p>Hackathons provide a great opportunity to improve your tech skills and meet like-minded peers and companies. Unfortunately many people are nervous to attend their first hackathon.<br><br>
-				Hello World is a 24 hour introductory hackathon that introduces you to the format of a hackathon as well as provides a helpful atmosphere for you to create your first real life application at a hackathon.
-			</p>
+			<p>Hackathons provide a great opportunity to improve your tech skills and meet like-minded peers and companies. Unfortunately many people are nervous to attend their first hackathon.</p>
+			<p>Hello World is a 24 hour introductory hackathon that introduces you to the format of a hackathon as well as provides a helpful atmosphere for you to create your first real life application at a hackathon.</p>
 		</div>
 	</div>
 </div>
 
+<br><div id="schedule"></div><br><br><br><br>
 
 <div class="timeline">
 	<h1>Workshop Schedule</h1>
@@ -157,7 +157,7 @@
 
 
 
-<br><br><br><br><br>
+<br><div id="faq"></div><br><br><br><br>
 
 <div class="faq clearfix">
 	<h1>FAQ</h1>
