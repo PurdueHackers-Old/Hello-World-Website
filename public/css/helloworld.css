@@ -1166,12 +1166,12 @@ ul.footer {
       .day-of .day-of-window .box p {
         float: left;
         margin: 0;
-        width: 80%;
+        width: 50%;
         text-align: left; }
         /* line 810, site.css.scss */
         .day-of .day-of-window .box p.subtext {
           float: right;
-          width: 20%;
+          width: 50%;
           text-align: right; }
     /* line 820, site.css.scss */
     .day-of .day-of-window .box:nth-child(odd) {

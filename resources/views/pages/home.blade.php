@@ -84,7 +84,7 @@
 				Hello World
 				<p class='subhead'>October 15-16th</p>
 				Check-In
-				<p class='subhead'>Oct 15 9:45am CL50 224</p>
+				<p class='subhead'>Oct 15 9:30am CL50 224</p>
 			</a>
 		</div>
 	</div>
@@ -96,38 +96,62 @@
     
     <div class="box clearfix">
       <p>Check In</p>
-      <p class="subtext">9:45am, CL50 224</p>
+      <p class="subtext">CL50 224, 9:30am</p>
     </div>
     <div class="box clearfix">
-      <p>Opening Ceremony</p>
-      <p class="subtext">10:30am, CL50 224</p>
+      <p>Opening Ceremonies</p>
+      <p class="subtext">CL50 224, 10:30am</p>
     </div>
     <div class="box clearfix">
       <p>Hacking Starts</p>
-      <p class="subtext">11:00am, LWSN</p>
+      <p class="subtext">LWSN, 11:00am</p>
     </div>
     <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
+      <p>Team Building</p>
+      <p class="subtext">LWSN Commons, 11:00am</p>
     </div>
     <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
+      <p>Lunch</p>
+      <p class="subtext">LWSN Commons, 12:30pm</p>
     </div>
     <div class="box clearfix">
-      <p>Event 1</p>
-      <p class="subtext">9:45</p>
+      <p>Talk: Intro to API’s</p>
+      <p class="subtext">LWSN 1106, 3:00pm</p>
+    </div>
+    <div class="box clearfix">
+      <p>Dinner</p>
+      <p class="subtext">LWSN Commons, 6:00pm</p>
+    </div>
+    <div class="box clearfix">
+      <p>Talk: Xtern Internships</p>
+      <p class="subtext">LWSN Commons, 6:00pm</p>
+    </div>
+    <div class="box clearfix">
+      <p>Talk: How the internet works</p>
+      <p class="subtext">LWSN 1106, 9:00pm</p>
+    </div>
+    <div class="box clearfix">
+      <p>Late Night Snack</p>
+      <p class="subtext">LWSN Commons, 11:00pm</p>
     </div>
     
     <h2>Sunday Schedule</h2>
     
+    <div class="box clearfix">
+      <p>Brunch</p>
+      <p class="subtext">LWSN Commons, 10:00am</p>
+    </div>
     <div class="box clearfix">
       <p>Hacking Ends</p>
       <p class="subtext">11:00am</p>
     </div>
     <div class="box clearfix">
       <p>Project Expo</p>
-      <p class="subtext">11:30am, LWSN Commons</p>
+      <p class="subtext">LWSN Commons, 11:30am</p>
+    </div>
+    <div class="box clearfix">
+      <p>Closing Ceremonies</p>
+      <p class="subtext">CL50 224, 12:45pm</p>
     </div>
 </div>
 
