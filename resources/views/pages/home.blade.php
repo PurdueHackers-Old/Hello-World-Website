@@ -115,7 +115,11 @@
       <p class="subtext">LWSN Commons, 12:30pm</p>
     </div>
     <div class="box clearfix">
-      <p>Talk: Intro to API’s</p>
+      <p>Talk: Making Art with Code</p>
+      <p class="subtext">LWSN 1106, 1:00pm</p>
+    </div>
+    <div class="box clearfix">
+      <p>Talk: Web scraping and APIs</p>
       <p class="subtext">LWSN 1106, 3:00pm</p>
     </div>
     <div class="box clearfix">
@@ -127,7 +131,7 @@
       <p class="subtext">LWSN 1106, 6:00pm</p>
     </div>
     <div class="box clearfix">
-      <p>Talk: How the internet works</p>
+      <p>Talk: Intro to APIs</p>
       <p class="subtext">LWSN 1106, 9:00pm</p>
     </div>
     <div class="box clearfix">
