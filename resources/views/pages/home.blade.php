@@ -39,8 +39,8 @@
 		</div>
 		<div class="right">
 			<h2>What is Hello World?</h2>
-			<p>Hackathons provide a great opportunity to improve your tech skills and meet like-minded peers and companies. Unfortunately many people are nervous to attend their first hackathon.</p>
-			<p>Hello World is a 24 hour introductory hackathon that introduces you to the format of a hackathon as well as provides a helpful atmosphere for you to create your first real life application at a hackathon.</p>
+			<p>Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.</p>
+			<p>Over the course of 24 hours you will learn from upperclassmen mentors, follow beginning-to-end programming tutorials, and work with your classmates to build a project of your choice!</p>
 		</div>
 	</div>
 </div>
@@ -168,45 +168,45 @@
 	<div class="faq-left clearfix">
 		<div class='faq-sec'>
 			<p class="subhead">What is Hello World?</p>
-			<p>
-				Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.
-				<br><br>
-				Over the course of one weekend you get to learn from upperclassmen mentors, follow beginning-to-end programming tutorials, and work with your classmates on a project of your choosing!
-			</p>
+			<p>Hello World is an opportunity for you to develop your skills in a fun and collaborative space. You will be surrounded by your peers and will have access to all of the resources you need.</p>
+			<p>Over the course of 24 hours you will learn from upperclassmen mentors, follow beginning-to-end programming tutorials, and work with your classmates to build a project of your choice!</p>
 		</div>
 		<div class='faq-sec'>
 			<p class="subhead">What is a hackathon?</p>
-			<p>A hackathon is a specialized event focused on building technical projects from scratch over a small period of time. Many students have found these marathon events to be a great way to learn how to code.
-			</p>
+			<p>A hackathon is a specialized event focused on building technical projects from scratch over a small period of time. Many students have found these marathon events to be a great way to learn how to code.</p>
 		</div>
-		<div class='faq-sec'>
-			<p class="subhead">Who is this event intended for?</p>
-			<p>Students who have never participated in a hackathon before. Hello World will prepare you with everything you need to know as you begin your collegiate hackathon career.
-			</p>
+		<div class="faq-sec">
+			<p class="subhead">Will there be teams? </p>
+			<p>Collaboration is just one of the exciting elements of Hello World. As such, teams of 2-4 are highly encouraged There will be team-forming exercises at the beginning of the event for those who do not already have a team.</p>
 		</div>
-
 		<div class="faq-sec">
 			<p class="subhead">How do I sign up?</p>
-			<p>Register here. In the event we reach capacity, the hackathon will be first-come-first-serve. Arrive early for guarunteed admission!
-			</p>
+			<p>Register here. Check-In at the event will be first-come first-serve, until we reach capacity. Arrive early for guaranteed admission!</p>
 		</div>
 	</div>
 
 	<div class="faq-right clearfix">
-		<div class="faq-sec">
-			<p class="subhead">Are you providing food?</p>
-			<p>Hello World will provide lunch and dinner the first day, as well as late night snacks and breakfast and lunch on the second day.</p>
+		<div class='faq-sec'>
+			<p class="subhead">What should I bring to the event?</p>
+			<p>Bring your laptop, charger, and any equipment you need for your project! Please do not bring drugs, alcohol, or weapons of any kind.</p>
+		</div>
+		<div class='faq-sec'>
+			<p class="subhead">Where do I show up?</p>
+			<p>Check-In starts at 9:30am on Saturday in CL50 224. Please bring all your stuff to check-in, as we will move into Lawson immediately following opening ceremonies.</p>
 		</div>
 		<div class="faq-sec">
-			<p class="subhead">Will there be teams? </p>
-			<p>Teams are highly encouraged yet not required, collaboration is instrumental to the success of your weekend. There will be team-forming exercises at the beginning of the event for those who do not already have a team.
-			</p>
+			<p class="subhead">Are you providing food?</p>
+			<p>Hello World will provide lunch and dinner the first day, as well as late night snacks and brunch on the second day.</p>
+		</div>
+		<div class="faq-sec">
+			<p class="subhead">Can I work at night?</p>
+			<p>Yes. Hello World will remain open all night, and we will always have volunteers around! You are welcome to work as late as you want, we only ask that you return to your dorms if you want to sleep.</p>
 		</div>
 		<div class="faq-sec">
 			<p class="subhead">What are the rules?</p>
-			<p>Start work on your project at the beginning of the hackathon.<br>
-				Use technologies that are freely available for everyone to use.<br>
-​				 Be respectful. Harassment and abuse are never tolerated.
+			<p>You must be a first-year Purdue or Computer Science student.<br>
+				Start work on your project at the beginning of the hackathon.<br>
+​				Be respectful. Harassment and abuse are never tolerated. <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">Code of Conduct</a>
 			</p>
 		</div>
 		<div class="faq-sec">
