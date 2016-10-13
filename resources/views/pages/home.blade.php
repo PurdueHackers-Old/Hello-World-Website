@@ -131,6 +131,10 @@
       <p class="subtext">LWSN 1106, 6:00pm</p>
     </div>
     <div class="box clearfix">
+      <p>CSWN Puzzle Challenge</p>
+      <p class="subtext">LWSN 1106, 8:00pm</p>
+    </div>
+    <div class="box clearfix">
       <p>Talk: Intro to APIs</p>
       <p class="subtext">LWSN 1106, 9:00pm</p>
     </div>
