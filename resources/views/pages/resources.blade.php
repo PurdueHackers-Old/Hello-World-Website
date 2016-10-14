@@ -68,6 +68,10 @@
 						<img class="github-logo" alt="github" src="/images/HW/github.svg">
 						<p>Read Workshop</p>
 					</a>
+					<a class="gitbook-link clearfix link-btn" href="https://youtu.be/XytLynHtr6o" target="_blank" style="margin-top: 5px;">
+						<img class="github-logo" alt="youtube" src="/images/HW/youtube.png">
+						<p>Watch Workshop</p>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -99,6 +103,10 @@
 					<a class="gitbook-link clearfix link-btn" href="https://jwlehman93.gitbooks.io/hello-world-server/content/" target="_blank">
 						<img class="github-logo" alt="github" src="/images/HW/github.svg">
 						<p>Read Workshop</p>
+					</a>
+					<a class="gitbook-link clearfix link-btn" href="https://youtu.be/XytLynHtr6o" target="_blank" style="margin-top: 5px;">
+						<img class="github-logo" alt="youtube" src="/images/HW/youtube.png">
+						<p>Watch Workshop</p>
 					</a>
 				</div>
 			</div>
