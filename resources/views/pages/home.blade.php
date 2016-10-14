@@ -72,6 +72,11 @@
 				Hello Android
 				<p class='subhead'>October 14 6:00 LWSN B151</p>
 			</a><br><br>
+			<a class="link-btn" href="https://www.facebook.com/events/1792876254259548/" target="_blank">
+				<p class='subhead'>ACM SigApp Presents</p>
+				Hello Server
+				<p class='subhead'>October 14 6:45 LWSN B151</p>
+			</a><br><br>
 			<a class="link-btn" href="https://www.facebook.com/events/1740620579522460/" target="_blank">
 				<p class='subhead'>WebDev Club Presents</p>
 				Web Development Basics Workshop
@@ -87,8 +92,8 @@
 		</div>
 	</div>
 </div>
-
-<div class="day-of">
+{{--
+	<div class="day-of">
   <div class="day-of-window">
     <h2>Saturday Schedule</h2>
     <div class="box clearfix">
@@ -126,7 +131,7 @@
       <p class="subtext">9:45</p>
     </div>
 </div>
-
+--}}
 
 
 <br><br><br><br><br>
