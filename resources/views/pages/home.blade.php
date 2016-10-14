@@ -72,7 +72,7 @@
 				Hello Android
 				<p class='subhead'>October 14 6:00 LWSN B151</p>
 			</a><br><br>
-			<a class="link-btn" href="https://www.facebook.com/events/1792876254259548/" target="_blank">
+			<a class="link-btn" href="https://www.facebook.com/events/1142848959104032/" target="_blank">
 				<p class='subhead'>ACM SigApp Presents</p>
 				Hello Server
 				<p class='subhead'>October 14 6:45
