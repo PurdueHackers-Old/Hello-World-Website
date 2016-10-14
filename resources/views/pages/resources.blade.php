@@ -107,8 +107,24 @@
 		</div>
 		<div class="club-info clearfix">
 			<h2>BoilerMake Presents</h2>
-			<p class="subtext">Boilercamp</p>
-			<a class="gitbook-link clearfix link-btn" href="">
+			<p class="subtext">How to API</p>
+			<a class="gitbook-link clearfix link-btn" href="https://boilercamp.gitbooks.io/boilercamp2016/content/index.html">
+				<img class="github-logo" alt="github" src="/images/HW/github.svg">
+				<p>Read Workshop</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="club-container ">
+	<div class="club clearfix ">
+		<div class="club-logo ">
+			<img src="images/HW/bm.svg">
+		</div>
+		<div class="club-info clearfix">
+			<h2>BoilerMake Presents</h2>
+			<p class="subtext">How to WebDev</p>
+			<a class="gitbook-link clearfix link-btn" href="http://boilercamp.github.io/how-to-webdev/">
 				<img class="github-logo" alt="github" src="/images/HW/github.svg">
 				<p>Read Workshop</p>
 			</a>
