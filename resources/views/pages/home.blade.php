@@ -75,7 +75,8 @@
 			<a class="link-btn" href="https://www.facebook.com/events/1792876254259548/" target="_blank">
 				<p class='subhead'>ACM SigApp Presents</p>
 				Hello Server
-				<p class='subhead'>October 14 6:45 LWSN B151</p>
+				<p class='subhead'>October 14 6:45
+					 LWSN B151</p>
 			</a><br><br>
 			<a class="link-btn" href="https://www.facebook.com/events/1740620579522460/" target="_blank">
 				<p class='subhead'>WebDev Club Presents</p>
@@ -98,7 +99,7 @@
 	<div class="day-of">
   <div class="day-of-window">
     <h2>Saturday Schedule</h2>
-    
+
     <div class="box clearfix">
       <p>Check In</p>
       <p class="subtext">CL50 224, 9:30am</p>
@@ -147,9 +148,9 @@
       <p>Late Night Snack</p>
       <p class="subtext">LWSN Commons, 11:00pm</p>
     </div>
-    
+
     <h2>Sunday Schedule</h2>
-    
+
     <div class="box clearfix">
       <p>Brunch</p>
       <p class="subtext">LWSN Commons, 10:00am</p>
