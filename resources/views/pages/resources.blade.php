@@ -15,7 +15,7 @@
 				</div>
 				<div class="club-info clearfix">
 					<h2>Hello World Presents</h2>
-					<p class="subtext">Android, iOS, and WebDev Resources</p>
+					<p class="subtext">Android, iOS, WebDev, and other Intro Resources</p>
 					<a class="gitbook-link clearfix link-btn" href="https://wei170.gitbooks.io/learning_package_1-0/content/">
 						<img class="github-logo" alt="github" src="/images/HW/github.svg">
 						<p>See Resources</p>
