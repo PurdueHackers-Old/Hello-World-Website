@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Twilio\Rest\Client;
 use DB;
 use Mail;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,7 @@ use App\Models\Location;
 use App\Models\LocationRecord;
 use App\Models\Major;
 use App\Models\Member;
+use App\Models\Project;
 
 class PortalController extends Controller {
 	
@@ -36,8 +38,8 @@ class PortalController extends Controller {
     public function getIndex() {
 		return view('pages.home');
 	}
-    
-    public function getResources() {
+	
+	public function getResources() {
 		return view('pages.resources');
 	}
 	
@@ -77,13 +79,16 @@ class PortalController extends Controller {
 					
 					if (Hash::needsRehash($member->password)) { // Check If Password Needs Rehash
 						$member->password = Hash::make($password);
-						$member->save();
 					}
+					
+					$member->authenticated_at = Carbon::now();
 					
 					if ($member->admin) { // Admin Accounts
 						$request->session()->put('authenticated_admin', 'true');
 					}
 					
+					$member->timestamps = false; // Don't update timestamps
+					$member->save();
 					return $this->getIndex();
 				}
 			}
@@ -191,23 +196,50 @@ class PortalController extends Controller {
 	/////////////////////////////// Viewing Members ///////////////////////////////
 	
 	public function getMembers() {
-		$members = Member::with('events')->orderBy('name')->get()->sortByDesc(function($member, $key) {
-			return (100000 * $member->publicEventCount()) - $key;
+		$members = Member::with('events')->get()->sortBy(function($member, $key) {
+			return sprintf('%04d',1000-$member->publicEventCount())."_".$member->name;
 		});
 		
 		return view('pages.members',compact("members"));
 	}
 	
-	public function getMembersAutocomplete(AdminRequest $request) {
-		$requestTerm = $request->input('term');
-
-		$searchFor = "%".$requestTerm.'%';
-		$members = Member::where('name','LIKE',$searchFor)->orWhere('email','LIKE',$searchFor)->orWhere('email_public','LIKE',$searchFor)->orWhere('email_edu','LIKE',$searchFor)->orWhere('description','LIKE',$searchFor);
-		$results = $members->get();
+	public function getMembersGraphs(AdminRequest $request) {
+		$members = Member::orderBy('created_at')->get();
 		
-		for($i=0;$i<count($results);$i++) {
-			$results[$i]['value'] = $results[$i]['name'];
-			$results[$i]['attended'] = count($results[$i]->events()->get());
+		// Join Dates
+		$joinDates = $this->graphDataJoinDates($members);
+		
+		// Member Graduation Year
+		$memberYears = $this->graphDataMemberYears($members);
+		
+		// Major
+		$majorsData = $this->graphDataMajor($members);
+		
+		return view('pages.members-graphs',compact("members","joinDates","memberYears","majorsData"));
+	}
+	
+	public function getMembersAutocomplete(AdminRequest $request, $eventID=0) {
+		$requestTerm = $request->input('term');
+		$searchFor = "%".$requestTerm.'%';
+		
+		$members = Member::where('name','LIKE',$searchFor)->orWhere('email','LIKE',$searchFor)->orWhere('email_public','LIKE',$searchFor)->orWhere('email_edu','LIKE',$searchFor)->orWhere('phone','LIKE',$searchFor)->orWhere('description','LIKE',$searchFor)->get();
+		
+		if ($eventID != 0) {
+			$event = Event::findOrFail($eventID);
+		}
+		
+		$results = [];
+		$numResults = count($members);
+		for($i=0;$i<$numResults;$i++) {
+			$results[$i]['value'] = $members[$i]->name;
+			$results[$i]['name'] = $members[$i]->name;
+			$results[$i]['email'] = $members[$i]->email;
+			$results[$i]['phone'] = $members[$i]->phone;
+			$results[$i]['attended'] = count($members[$i]->events);
+			$results[$i]['graduation_year'] = $members[$i]->graduation_year;
+			if ($numResults<=10 && $eventID!=0 && $event->requiresApplication) {
+				$results[$i]['registered'] = count($event->applications()->where('member_id',$members[$i]->id)->get());
+			}
 		}
 
 		return $results;
@@ -221,8 +253,8 @@ class PortalController extends Controller {
 			return $this->getMembers();
 		}
 		
-		$locations = $member->locations()->get();
-		$events = $member->events()->get();
+		$locations = $member->locations;
+		$events = $member->events;
 		$majors = Major::orderByRaw('(id = 1) DESC, name')->get(); // Order by name, but keep first major at top
 		
 		return view('pages.member',compact("member","locations","events","majors"));
@@ -236,6 +268,7 @@ class PortalController extends Controller {
 		$memberName = $request->input('memberName');
 		$password = $request->input('password');
 		$email = $request->input('email');
+		$phone = $request->input('phone');
 		$email_public = $request->input('email_public');
 		$gradYear = $request->input('gradYear');
 		$gender = $request->input('gender');
@@ -264,6 +297,10 @@ class PortalController extends Controller {
 		if(strlen($password) > 0) {
 			$member->password = Hash::make($password);
 			$this->setAuthenticated($request,$member->id,$member->name);
+			
+			if ($member->admin) { // Admin Accounts
+				$request->session()->put('authenticated_admin', 'true');
+			}
 		}
 		
 		// Email
@@ -277,6 +314,7 @@ class PortalController extends Controller {
 		}
 		
 		// Text Fields
+		$member->phone = $phone;
 		$member->graduation_year = $gradYear;
 		$member->gender = $gender;
 		if ($major > 0) {
@@ -366,8 +404,8 @@ class PortalController extends Controller {
 			return $this->getIndex();
 		}
 		
-		$locations = $member->locations()->get();
-		$events = $member->events()->get();
+		$locations = $member->locations;
+		$events = $member->events;
 		$majors = Major::orderByRaw('(id = 1) DESC, name')->get(); // Order by name, but keep first major at top
 		$setPassword = true;
 		
@@ -399,8 +437,7 @@ class PortalController extends Controller {
 		$requestTerm = $request->input('term');
 
 		$searchFor = "%".$requestTerm.'%';
-		$locations = Location::where('name','LIKE',$searchFor);
-		$results = $locations->get();
+		$results = Location::where('name','LIKE',$searchFor)->get();
 		
 		for($i=0;$i<count($results);$i++) {
 			$results[$i]['value'] = $results[$i]['name'];
@@ -413,8 +450,7 @@ class PortalController extends Controller {
 		$requestTerm = $request->input('term');
 
 		$searchFor = "%".$requestTerm.'%';
-		$locations = Location::where('city','LIKE',$searchFor);
-		$results = $locations->get();
+		$results = Location::where('city','LIKE',$searchFor)->get();
 		
 		for($i=0;$i<count($results);$i++) {
 			$results[$i]['value'] = $results[$i]['city'];
@@ -431,7 +467,7 @@ class PortalController extends Controller {
 			return $this->getLocations();
 		}
 		
-		$members = $location->members()->get();
+		$members = $location->members;
 		
 		return view('pages.location',compact("location","members"));
 	}
@@ -489,9 +525,6 @@ class PortalController extends Controller {
 	}
 	
 	public function addLocationLatLng($location) {
-		//$location->loc_lat = rand(0, 90);
-		//$location->loc_lng = rand(0, 360);
-		
 		// Get Correct Latitude / Longitude of Location from Google Places API
 		$requestQuery = htmlentities(urlencode($location->name." ".$location->city));
 		$requestResult = json_decode(file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query='.$requestQuery.'&key='.env('KEY_GOOGLESERVER')), true);
@@ -528,9 +561,9 @@ class PortalController extends Controller {
 	
 	public function getEvents(Request $request) {
 		if ($this->isAdmin($request)) {
-			$events = Event::orderBy("event_time")->get();
+			$events = Event::orderBy("event_time","desc")->get();
 		} else {
-			$events = Event::where('privateEvent',false)->orderBy("event_time")->get();
+			$events = Event::where('privateEvent',false)->orderBy("event_time","desc")->get();
 		}
 		$checkin = false;
 		return view('pages.events',compact("events","checkin"));
@@ -539,29 +572,55 @@ class PortalController extends Controller {
 	public function getEvent(Request $request, $eventID) {
 		$event = Event::findOrFail($eventID);
 		
-		$members = $event->members()->get();
+		$members = $event->members;
 		
-		$canApply = $this->isAuthenticated($request) && $event->requiresApplication;
-		$canRegister = $this->isAuthenticated($request) && $event->requiresRegistration;
+		foreach ($members as $member) { // Pre-calculate names of users who checked student in
+			$recorded_member = Member::find($member->events()->find($eventID)->pivot->recorded_by);
+			$member->recorded_by = $recorded_member;
+		}
+		
+		$requiresApplication = $this->isAuthenticated($request) && $event->requiresApplication;
 		$authenticatedMember = $this->getAuthenticated($request);
 		if ($authenticatedMember != null) {
 			$hasRegistered = count($authenticatedMember->applications()->where('event_id',$eventID)->get()) > 0;
 		}
-		$applications = [];
+		
+		$applications = []; // Get list of applications (if admin)
 		if ($request->session()->get('authenticated_admin') == "true") {
-			$applications = $event->applications()->get();
+			$applications = $event->applications;
 		}
 		
-		return view('pages.event',compact("event","members","canApply","canRegister","hasRegistered","applications"));
+		return view('pages.event', compact("event","members","requiresApplication","hasRegistered","applications"));
+	}
+	
+	public function getEventNew() {
+		$event = new Event;
+		$event->id = 0;
+		$members = [];
+		$requiresApplication = false;
+		$hasRegistered = false;
+		$applications = [];
+		return view('pages.event', compact("event","members","requiresApplication","hasRegistered","applications"));
 	}
 	
 	public function getEventGraphs(AdminRequest $request, $eventID) {
 		$event = Event::findOrFail($eventID);
 		
-		$members = $event->members()->get();
-		$applications = $event->applications()->get();
+		$members = $event->members;
+		if(count($members) == 0) {
+			$members = $event->getAppliedMembers();
+		}
 		
-		return view('pages.event-graphs',compact("event","members","applications"));
+		// Join Dates
+		$joinDates = $this->graphDataJoinDates($members);
+		
+		// Member Graduation Year
+		$memberYears = $this->graphDataMemberYears($members);
+		
+		// Major
+		$majorsData = $this->graphDataMajor($members);
+		
+		return view('pages.event-graphs', compact("event","joinDates","memberYears","majorsData"));
 	}
 	
 	/////////////////////////////// Editing Events ///////////////////////////////
@@ -569,48 +628,116 @@ class PortalController extends Controller {
 	public function postEvent(EditEventRequest $request, $eventID) {
 		$eventName = $request->input("eventName");
 		$eventPrivate = $request->input("privateEvent")=="true" ? true : false;
+		$requiresApplication = $request->input("requiresApplication")=="true" ? true : false;
 		$eventDate = $request->input("date");
 		$eventHour = $request->input("hour");
 		$eventMinute = $request->input("minute");
 		$eventLocation = $request->input("location");
 		$eventFB = $request->input("facebook");
 		
-		if($eventID >= 0) {
-			$event = Event::find($eventID);
-		} else {
+		if($eventID == 0) {
 			$event = new Event;
+		} else {
+			$event = Event::find($eventID);
 		}
 		
 		// Verify Input
 		if(is_null($event)) {
 			$request->session()->flash('msg', 'Error: Event Not Found.');
-			return $this->getEvents();
+			return $this->getEvents($request);
 		}
 		
 		// Edit Event
 		$event->name = $eventName;
 		$event->privateEvent = $eventPrivate;
+		$event->requiresApplication = $requiresApplication;
 		$event->event_time = new Carbon($eventDate." ".$eventHour.":".$eventMinute);
 		$event->location = $eventLocation;
 		$event->facebook = $eventFB;
 		$event->save();
 		
 		// Return Response
-		if($eventID >= 0) {
+		if($eventID == 0) { // New Event
+			return redirect()->action('PortalController@getEvent', [$event->id])->with('msg', 'Event Created!');
+		} else {
 			$request->session()->flash('msg', 'Event Updated!');
 			return $this->getEvent($request, $eventID);
-		} else { // New Event
-			return redirect()->action('PortalController@getEvent', [$event->id])->with('msg', 'Event Created!');
 		}
 	}
 	
-	public function getEventNew() {
-		return view('pages.event_new');
+	public function getEventDelete(AdminRequest $request, $eventID) {
+		Event::findOrFail($eventID)->delete();
+		
+		return redirect()->action('PortalController@getEvents')->with('msg', 'Event Deleted! If this was done by mistake, contact the site administrator to restore this event.');
 	}
 	
-	public function getEventDelete($eventID) {
-		Event::findOrFail($eventID)->delete();
-		return $this->getEvents();
+	/////////////////////////////////// Event Emails ///////////////////////////////////
+	
+	public function getEventMessage(AdminRequest $request, $eventID) {
+		$event = Event::findOrFail($eventID);
+		
+		return view('pages.event-message', compact("event"));
+	}
+	
+	public function postEventMessage(AdminRequest $request, $eventID) {
+		$event = Event::findOrFail($eventID);
+		
+		$method = $request->input("method");
+		$subject = $request->input("subject");
+		$msg = nl2br(e($request->input("message")));
+		$target = $request->input("target");
+		
+		// Get Recipient Members
+		$members = null;
+		if ($target == "all") {
+			$members = Member::all();
+		} elseif ($target == "both") {
+			$members_att = $event->members;
+			$members_reg = $event->getAppliedMembers();
+			$members = $members_att->merge($members_reg)->all();
+		} elseif ($target == "att") {
+			$members = $event->members;
+		} elseif ($target == "reg") {
+			$members = $event->getAppliedMembers();
+		} elseif ($target == "not") {
+			$members_all = Member::all();
+			$members_reg = $event->getAppliedMembers();
+			$members = $members_all->diff($members_reg)->all();
+		} else {
+			$members = $event->members;
+		}
+		
+		$members_copy = [$this->getAuthenticated($request), Member::find(1)];
+		$members = collect($members)->merge($members_copy)->unique()->all();
+		
+		// Send Messages to Recipients
+		foreach ($members as $member) {
+			// Fill Placeholders
+			$placeholder_values = [
+				'{{name}}' => $member->name,
+				'{{setpassword}}' => $member->reset_url(),
+				'{{register}}' => $member->apply_url($event->id),
+				'{{link}}' => '<a href="',
+				'{{link-text}}' => '">',
+				'{{/link}}' => '</a>',
+			];
+			$memberMsg = str_replace(array_keys($placeholder_values), array_values($placeholder_values), $msg);
+			
+			// Send Message
+			if ($method == "email") { // Send Email
+				if (in_array($member, $members_copy)) {
+					$this->sendEmail($member, "COPY: ".$subject, $memberMsg);
+				} else {
+					$this->sendEmail($member, $subject, $memberMsg);
+				}
+			} elseif ($method == "sms") { // Send SMS
+				if (strlen($member->phone) > 9) { // If valid #
+					$this->sendSMS($member, $memberMsg);
+				}
+			}
+		}
+		
+		return redirect()->action('PortalController@getEventMessage', [$eventID])->with('msg', 'Success, message sent!');
 	}
 	
 	/////////////////////////////// Event Checkin System ///////////////////////////////
@@ -626,16 +753,23 @@ class PortalController extends Controller {
 		
 		if(is_null($event)) {
 			$request->session()->flash('msg', 'Error: Event Not Found.');
-			return $this->getEvents();
+			return $this->getEvents($request);
 		}
 		
 		return view('pages.checkin',compact("event","eventID"));
+	}
+	
+	public function getCheckinPhone(AdminRequest $request, $eventID) {
+		$getCheckin = $this->getCheckin($request, $eventID);
+		
+		return $getCheckin->with('checkinPhone',true);
 	}
 	
 	public function postCheckinMember(AdminRequest $request) {
 		$successResult = "true";
 		$memberName = $request->input("memberName");
 		$memberEmail = $request->input("memberEmail");
+		$memberPhone = $request->input("memberPhone");
 		$event = Event::find($request->input("eventID"));
 		
 		if ($request->input("memberID") > 0) { // Search By memberID
@@ -670,12 +804,24 @@ class PortalController extends Controller {
 			$member->save();
 			$successResult = "new";
 			$this->emailAccountCreated($member, $event);
+		} else { // Existing Member, If account not setup, send creation email
+			if ($member->graduation_year == 0) {
+				$this->emailAccountCreated($member, $event);
+			}
 		}
 		
 		if ($event->members()->find($member->id)) { // Check if Repeat
 			return "repeat";
 		}
-		$event->members()->attach($member->id); // Save Record
+		
+		$event->members()->attach($member->id,['recorded_by' => $this->getAuthenticatedID($request)]); // Save Record
+		
+		if (strlen($memberPhone) > 9) {
+			$member->phone = $memberPhone;
+			$member->save();
+		} elseif (strlen($memberPhone)>2) {
+			return "phone";
+		}
 		
 		return $successResult;
 	}
@@ -722,6 +868,55 @@ class PortalController extends Controller {
 		return view('pages.apply',compact('event', 'authenticatedMember', 'majors', 'hasRegistered'));
 	}
 	
+	public function getApplyAuth(Request $request, $eventID, $memberID, $reset_token) {
+		$event = Event::findOrFail($eventID);
+		$member = Member::findOrFail($memberID);
+		
+		if ($reset_token != $member->reset_token()) {
+			$request->session()->flash('msg','Error: Invalid Authentication Token');
+			return $this->getIndex();
+		}
+		
+		$this->setAuthenticated($request, $memberID, $member->name);
+		
+		return $this->getApply($request, $eventID);
+	}
+	
+	public function getRegister(LoggedInRequest $request, $eventID) { // Submit Empty Application
+		$event = Event::findOrFail($eventID);
+		
+		if ($event->requiresApplication) {
+			$request->session()->flash('msg','Error: Invalid Authentication Token');
+			return $this->getEvent($request, $eventID);
+		}
+		
+		$memberID = $this->getAuthenticatedID($request);
+		
+		if ($event->applications()->where('member_id',$memberID)->first()) {
+			$request->session()->flash('msg','Error: You are already registered for '.$event->name.".");
+			return $this->getEvent($request, $eventID);
+		}
+		
+		$application = new Application();
+		$application->member_id = $memberID;
+		$application->event_id = $eventID;
+		$application->save();
+		
+		$request->session()->flash('msg','Success: You are registered for '.$event->name.'!');
+		return $this->getEvent($request, $eventID);
+	}
+	
+	public function getUnregister(LoggedInRequest $request, $eventID) { // Delete Application
+		$event = Event::findOrFail($eventID);
+		
+		$memberID = $this->getAuthenticatedID($request);
+		
+		$event->applications()->where('member_id',$memberID)->first()->delete();
+		
+		$request->session()->flash('msg','You are no longer registered for '.$event->name.'.');
+		return $this->getEvent($request, $eventID);
+	}
+	
 	public function postApply(LoggedInRequest $request, $eventID) { // POST Apply
 		// Member Details
 		$gender = $request->input('gender');
@@ -738,7 +933,7 @@ class PortalController extends Controller {
 		$dietary = $request->input('dietary');
 		
 		$application = new Application();
-		$application->member_id = $this->getAuthenticatedID($request);
+		$application->member_id = $member->id;
 		$application->event_id = $eventID;
 		$application->tshirt = $tshirt;
 		$application->interests = $interests;
@@ -751,9 +946,174 @@ class PortalController extends Controller {
 	
 	public function getApplications(AdminRequest $request, $eventID=-1) {
 		$event = Event::findOrFail($eventID);
-		$applications = $event->applications()->get();
+		$applications = $event->applications;
 		
 		return view('pages.applications',compact("event","applications"));
+	}
+	
+	public function getApplicationsUpperclassmen(AdminRequest $request, $eventID=-1) {
+		$event = Event::findOrFail($eventID);
+		$members = $event->getAppliedMembers();
+		$upperclassmen = [];
+		foreach ($members as $member) {
+			if ($member->graduation_year > 2016 && $member->graduation_year < 2020) {
+				array_push($upperclassmen, $member);
+			}
+		}
+		$upperclassmen = collect($upperclassmen)->pluck("email","name");
+		
+		return $upperclassmen;
+	}
+	
+	/////////////////////////////// Viewing Projects ///////////////////////////////
+	
+	public function getProjects(LoggedInRequest $request) {
+		$projects = $this->getAuthenticated($request)->projects;
+		
+		return view('pages.projects',compact("projects"));
+	}
+	
+	public function getProjectsAll(AdminRequest $request) {
+		$projects = Project::all();
+		$allProjects = true;
+		
+		return view('pages.projects',compact("projects","allProjects"));
+	}
+	
+	public function getProject(LoggedInRequest $request, $projectID) {
+		$project = Project::findOrFail($projectID);
+		
+		if ($this->canAccessProject($request, $project) == false) {
+			$request->session()->flash('msg', 'Error: Project Not Found.');
+			return $this->getProjects($request);
+		}
+		
+		$members = $project->members;
+		
+		return view('pages.project', compact("project","members"));
+	}
+	
+	public function canAccessProject($request, $project) {
+		$member = $this->getAuthenticated($request);
+		
+		return $project->members->contains($member) || $this->isAdmin($request);
+	}
+	
+	/////////////////////////////// Creating Projects ///////////////////////////////
+	
+	public function getProjectNew(LoggedInRequest $request) {
+		$project = new Project;
+		$project->id = 0;
+		$members = [];
+		
+		return view('pages.project', compact("project","members"));
+	}
+	
+	/////////////////////////////// Editing Projects ///////////////////////////////
+	
+	public function postProject(LoggedInRequest $request, $projectID) {
+		$projectName = $request->input("name");
+		$projectDescription = $request->input("description");
+		
+		if($projectID == 0) { // Create New Project
+			$project = new Project;
+		} else {
+			$project = Project::find($projectID);
+			if ($this->canAccessProject($request, $project) == false) { // Verify Permissions
+				$request->session()->flash('msg', 'Error: Project Not Found.');
+				return $this->getProjects($request);
+			}
+		}
+		
+		// Verify Input
+		if(is_null($project)) {
+			$request->session()->flash('msg', 'Error: Project Not Found.');
+			return $this->getProjects($request);
+		}
+		
+		// Edit Project
+		$project->name = $projectName;
+		$project->description = $projectDescription;
+		$project->save();
+		
+		// Return Response
+		if($projectID == 0) { // New Project
+			$member = $this->getAuthenticated($request);
+			$project->members()->attach($member->id); // Attach Project to Member
+			return redirect()->action('PortalController@getProject', [$project->id])->with('msg', 'Project Created!');
+		} else {
+			$request->session()->flash('msg', 'Project Updated!');
+			return $this->getProject($request, $projectID);
+		}
+	}
+	
+	public function getProjectDelete(LoggedInRequest $request, $projectID) {
+		$project = Project::findOrFail($projectID);
+		
+		if ($this->canAccessProject($request, $project) == false) {
+			$request->session()->flash('msg', 'Error: Project Not Found.');
+			return $this->getProjects($request);
+		}
+		
+		$project->delete();
+		
+		return redirect()->action('PortalController@getProjects')->with('msg', 'Success: Project Deleted. If this was by mistake, contact an organizer to reverse the change.');
+	}
+	
+	/////////////////////////////// Editing Project Members ///////////////////////////////
+	
+	public function postProjectAddMember(LoggedInRequest $request, $projectID) {
+		$project = Project::findOrFail($projectID);
+		$memberInput = $request->input("member");
+		$member = Member::where('name',$memberInput)->orWhere('email',$memberInput)->first();
+		
+		if ($this->canAccessProject($request, $project) == false) {
+			$request->session()->flash('msg', 'Error: Project Not Found');
+			return $this->getProjects($request);
+		}
+		
+		if ($member == null) {
+			$request->session()->flash('msg', 'Error: Member not found. Do they have a '.env("ORG_NAME").' account?');
+			return $this->getProject($request, $projectID);
+		}
+		
+		if ($project->members()->find($member->id)) {
+			$request->session()->flash('msg', 'Error: Member already in team');
+			return $this->getProject($request, $projectID);
+		}
+		
+		$project->members()->attach($member->id);
+		
+		return redirect()->action('PortalController@getProject', [$projectID])->with('msg', 'Success: Added '.$member->name.' to project '.$project->name);
+	}
+	
+	public function getProjectRemoveMember(LoggedInRequest $request, $projectID, $memberID) {
+		$project = Project::findOrFail($projectID);
+		$member = Member::findOrFail($memberID);
+		
+		if ($this->canAccessProject($request, $project) == false) {
+			$request->session()->flash('msg', 'Error: Project Not Found');
+			return $this->getProjects($request);
+		}
+		
+		if ($member == null) {
+			$request->session()->flash('msg', 'Error: Member Not Found');
+			return $this->getProject($request, $projectID);
+		}
+		
+		if (count($project->members) <= 1) {
+			$request->session()->flash('msg', 'Error: Cannot leave project with only 1 member. Please delete project to remove.');
+			return $this->getProject($request, $projectID);
+		}
+		
+		if ($project->members()->find($member->id) == false) {
+			$request->session()->flash('msg', 'Error: Member is not in team');
+			return $this->getProject($request, $projectID);
+		}
+		
+		$project->members()->detach($member->id);
+		
+		return redirect()->action('PortalController@getProject', [$projectID])->with('msg', 'Success: Removed '.$member->name.' from project '.$project->name);
 	}
 
 	/////////////////////////////// Helper Functions ///////////////////////////////
@@ -767,6 +1127,88 @@ class PortalController extends Controller {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+	
+	public function sendEmail($member, $subject, $msg) {
+		if (true) {
+			Mail::send('emails.default', ['member'=>$member, 'msg'=>$msg], function ($message) use ($member, $subject) {
+				$message->from('purduehackers@gmail.com', 'Purdue Hackers');
+				$message->to($member->email);
+				$message->subject($subject);
+			});
+		}
+	}
+    
+    static $twilioClient;
+    public  function TwilioClient() {
+	    if (null === static::$twilioClient) {
+            static::$twilioClient = new Client(env("TWILIO_SID"), env("TWILIO_TOKEN"));
+        }
+        
+        return static::$twilioClient;
+    }
+	
+	public function sendSMS($member, $msg) {
+		if (strlen($member->phone) > 7) {
+			$phoneNum = preg_replace("/[^0-9]/", "", $member->phone);
+			$this->TwilioClient()->messages->create($phoneNum, ['from'=>'+17652312066', 'body'=>$msg]);
+		}
+	}
+    
+    public function graphDataJoinDates($members) {
+	    $joinDatesDict = [];
+	    $start = Member::orderBy('created_at')->first()->created_at;
+		$end = Carbon::now()->modify('+1 day');
+		for ($i = $start; $i < $end; $i->modify('+1 day')) {
+			$joinDatesDict[$i->toDateString()] = 0;
+		}
+		foreach ($members as $member) {
+			$dateString = $member->created_at->toDateString();
+			$joinDatesDict[$dateString]++;
+		}
+		$joinDates = [];
+		foreach ($joinDatesDict as $date=>$count) {
+			array_push($joinDates, compact("date","count"));
+		}
+		
+		return $joinDates;
+    }
+    
+    public function graphDataMemberYears($members) {
+	    $memberYearsDict = [];
+		foreach ($members as $member) {
+			$memberYear = $member->graduation_year;
+			$memberYearsDict[$memberYear] = isset($memberYearsDict[$memberYear]) ? $memberYearsDict[$memberYear]+1 : 1;
+		}
+		$memberYears = [];
+		foreach ($memberYearsDict as $key=>$count) {
+			array_push($memberYears, compact("key","count"));
+		}
+		$memberYears = array_values(array_sort($memberYears, function ($value) {
+			return $value['key'];
+		}));
+		
+		return $memberYears;
+    }
+    
+    public function graphDataMajor($members) {
+	    $majors = Major::all();
+		$majorsDict = [];
+		foreach ($majors as $major) {
+			$majorsDict[$major->name] = 0;
+		}
+		foreach ($members as $member) {
+			if(isset($member->major)) {
+				$majorsDict[$member->major->name]++;
+			}
+		}
+		$majorsData = [];
+		foreach ($majorsDict as $key=>$count) {
+			$key = preg_replace('~\b(\w)|.~', '$1', $key);
+			array_push($majorsData, compact("key","count"));
+		}
+		
+		return $majorsData;
     }
     
 }

@@ -13,10 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model {
 	
 	protected $dates = [
-        'created_at',
-        'updated_at',
-        'setupEmailSent'
-    ];
+		'created_at',
+		'updated_at',
+		'authenticated_at',
+		'setupEmailSent',
+	];
 
 	public function major() {
 		return $this->hasOne('App\Models\Major','id','major_id');
@@ -26,8 +27,12 @@ class Member extends Model {
 		return $this->hasMany('App\Models\LocationRecord');
 	}
 	
+	public function projects() {
+		return $this->belongsToMany('App\Models\Project');
+	}
+	
 	public function events() {
-		return $this->belongsToMany('App\Models\Event');
+		return $this->belongsToMany('App\Models\Event')->withPivot('recorded_by');
 	}
 	
 	public function publicEventCount() {
@@ -38,8 +43,16 @@ class Member extends Model {
 		return $this->hasMany('App\Models\Application');
 	}
 	
+	public function apply_url($eventID) {
+		return action('PortalController@getApplyAuth', [$eventID, $this->id, $this->reset_token()]);
+	}
+	
 	public function reset_token() {
 		return md5($this->id.$this->password.env('ADMIN_PASS'));
+	}
+	
+	public function reset_url() {
+		return action('PortalController@getReset', [$this->id, $this->reset_token()]);
 	}
 	
 	public function picturePath() {

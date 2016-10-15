@@ -68,7 +68,7 @@
 						<img class="github-logo" alt="github" src="/images/HW/github.svg">
 						<p>Read Workshop</p>
 					</a>
-					<a class="gitbook-link clearfix link-btn" href="https://youtu.be/XytLynHtr6o" target="_blank" style="margin-top: 5px;">
+					<a class="gitbook-link clearfix link-btn" href="https://youtu.be/Y85dL3SdC54" target="_blank" style="margin-top: 5px;">
 						<img class="github-logo" alt="youtube" src="/images/HW/youtube.png">
 						<p>Watch Workshop</p>
 					</a>

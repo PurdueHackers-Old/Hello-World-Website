@@ -31,7 +31,7 @@
         <link href='//fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 
 	    <!-- Portal Site CSS -->
-	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=4">
+	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=5">
 
     </head>
     <body {!! ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' !!}>
@@ -68,17 +68,24 @@
 		<!-- jQuery / jQuery UI -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 		<!-- BValidator -->
 		<script type="text/javascript" src="/js/jquery.bvalidator-yc.js"></script>
 		<!-- Bootstrap JS -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- Tablesorter -->
+		<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
 		<!-- Site JS -->
-		@if (isset($eventID))
+		@if (isset($eventID) || isset($event))
 		<script type="text/javascript">
-			var eventID = {{ $eventID }};
+			var eventID = {{ isset($eventID) ? $eventID : $event->id }};
+		</script>
+		@else
+		<script type="text/javascript">
+			var eventID = 0;
 		</script>
 		@endif
-		<script type="text/javascript" src="/js/membersportal.js?v=2"></script>
+		<script type="text/javascript" src="/js/membersportal.js?v=5"></script>
 		<!-- Page Specific JS -->
 		@yield('customJS')
     </body>
