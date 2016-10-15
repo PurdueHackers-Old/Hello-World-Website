@@ -95,7 +95,7 @@
 		</div>
 	</div>
 </div>
-{{--
+
 	<div class="day-of">
   <div class="day-of-window">
     <h2>Saturday Schedule</h2>
@@ -168,7 +168,7 @@
       <p class="subtext">CL50 224, 12:45pm</p>
     </div>
 </div>
---}}
+
 
 
 <br><div id="faq"></div><br><br><br><br>
