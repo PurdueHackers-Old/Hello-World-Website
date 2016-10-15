@@ -31,7 +31,7 @@
         <link href='//fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 
 	    <!-- Portal Site CSS -->
-	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=5">
+	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=6">
 	    <link rel="stylesheet" type="text/css" href="/css/helloworld_live.css">
 
     </head>
