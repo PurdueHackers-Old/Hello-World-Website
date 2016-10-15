@@ -95,7 +95,7 @@
 		</div>
 	</div>
 </div>
-
+	<br><br>
 	<div class="day-of">
   <div class="day-of-window">
     <h2>Saturday Schedule</h2>

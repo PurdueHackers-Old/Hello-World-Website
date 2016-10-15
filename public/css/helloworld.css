@@ -1146,91 +1146,90 @@ ul.footer {
 
 /* line 788, site.css.scss */
 .day-of {
-  background: black;
   text-align: center;
   color: #118c76;
   margin: 0 auto;
   text-align: center;
   width: 100%; }
-  /* line 795, site.css.scss */
+  /* line 794, site.css.scss */
   .day-of .day-of-window {
     max-width: 500px;
     min-width: 300px;
     margin: 0 auto; }
-    /* line 799, site.css.scss */
+    /* line 798, site.css.scss */
     .day-of .day-of-window .box {
       padding: 10px 20px;
       align-items: middle;
       width: 100%;
       display: block; }
-      /* line 804, site.css.scss */
+      /* line 803, site.css.scss */
       .day-of .day-of-window .box p {
         float: left;
         margin: 0;
-        width: 80%;
+        width: 50%;
         text-align: left; }
-        /* line 809, site.css.scss */
+        /* line 808, site.css.scss */
         .day-of .day-of-window .box p.subtext {
           float: right;
-          width: 20%;
+          width: 50%;
           text-align: right; }
-    /* line 816, site.css.scss */
+    /* line 815, site.css.scss */
     .day-of .day-of-window .box:nth-child(odd) {
       background: #f2f2dc; }
-    /* line 819, site.css.scss */
+    /* line 818, site.css.scss */
     .day-of .day-of-window .box:nth-child(even) {
       background: #E0E0CC; }
 
-/* line 825, site.css.scss */
+/* line 824, site.css.scss */
 .resources {
   margin: 0 auto;
   text-align: center;
   width: 100%;
   padding: 30px 0px 30px 0px; }
-  /* line 830, site.css.scss */
+  /* line 829, site.css.scss */
   .resources p {
     max-width: 300px;
     text-align: center;
     margin: 0 auto;
     padding: 20px 0px 20px 0px; }
-  /* line 836, site.css.scss */
+  /* line 835, site.css.scss */
   .resources .club-container {
     margin: 20px auto;
     background: #f2f2dc;
     max-width: 500px;
     min-width: 300px;
     padding: 20px; }
-    /* line 842, site.css.scss */
+    /* line 841, site.css.scss */
     .resources .club-container .club {
       text-align: left;
       width: 100%;
       clear: none; }
-      /* line 846, site.css.scss */
+      /* line 845, site.css.scss */
       .resources .club-container .club .club-logo img {
         max-width: 120px;
         min-width: 70px;
         width: 30%;
         float: left;
         padding: 20px; }
-      /* line 853, site.css.scss */
+      /* line 852, site.css.scss */
       .resources .club-container .club .club-info {
         padding: 20px;
         text-align: left;
         width: 70%;
         float: left; }
-        /* line 858, site.css.scss */
+        /* line 857, site.css.scss */
         .resources .club-container .club .club-info h2, .resources .club-container .club .club-info p {
           color: #118c76;
           text-align: left;
           margin: 0; }
-        /* line 864, site.css.scss */
+        /* line 863, site.css.scss */
         .resources .club-container .club .club-info .gitbook-link:hover {
           background: #118c76; }
-        /* line 867, site.css.scss */
+        /* line 866, site.css.scss */
         .resources .club-container .club .club-info .gitbook-link .github-logo {
           width: 35px;
           position: absolute; }
-        /* line 871, site.css.scss */
+        /* line 870, site.css.scss */
         .resources .club-container .club .club-info .gitbook-link p {
           text-align: left;
           color: #f2f2dc;
