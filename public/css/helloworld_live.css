@@ -9,11 +9,20 @@
 	top: 45px;
 	width: 70%;
 	height: 480px;
+	background-color: black;
 }
 
 #video-frame {
-	width: 100% !important;
 	height: 100% !important;
+}
+
+#video-msgs {
+	height: 260px;
+	padding-top: 20px;
+}
+
+#video-msgs li {
+	padding-top: 10px;
 }
 
 #msg-container {

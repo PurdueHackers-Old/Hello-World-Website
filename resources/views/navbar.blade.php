@@ -16,7 +16,8 @@
 					<li><a href="#faq">FAQ</a></li>
 				@endif
 				<li><a href="/resources">Resources</a></li>
-				<li><a href="/dayof">Day-Of</a></li>
+				<li><a href="http://help.purduehackers.com" target="_blank">Mentors</a></li>
+				<li><a href="/dayof">Day Of</a></li>
 				@if(session()->get('authenticated_member') == "true")
 					<li><a href="/member/{{ session()->get('member_id') }}">Profile</a></li>
 					<li><a href="/projects">Projects</a></li>

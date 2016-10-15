@@ -8,8 +8,14 @@
 		<p>Presented by Purdue Hackers</p>
 
 		<div id="video-container" class="live-container">
-			<iframe width="640" height="360" id="video-frame" src="https://www.youtube.com/embed/ZqLXluCNKL4" frameborder="0" scrolling="no" allowfullscreen></iframe>
+			{{--<ul id="video-msgs">
+				<li>Check-In starts at 9:30 AM in CL50</li>
+				<li>Opening Ceremony starts at 10:30 AM in CL50</li>
+			</ul>
+			<iframe src="https://mixlr.com/users/5617201/embed" width="100%" height="180px" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>--}}
+			<iframe src="https://www.livecoding.tv/harrischristiansen/embed" id="video-frame" width="780" height="420" frameborder="0" allowfullscreen></iframe>
 		</div>
+
 		<div id="schedule-container" class="live-container">
 			<h2>Schedule</h2>
 			<h4>Saturday</h4>
