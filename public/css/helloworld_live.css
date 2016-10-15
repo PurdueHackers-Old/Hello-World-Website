@@ -1,15 +1,14 @@
 .live-container {
 	color: rgb(17, 140, 118);
-	background-color: rgb(242, 242, 220);
+	background-color: white;
 	position: absolute;
 }
 
 #video-container {
-	left: 10px;
-	top: 60px;
-	width: 66%;
+	left: 0px;
+	top: 45px;
+	width: 70%;
 	height: 480px;
-	padding: 10px;
 }
 
 #video-frame {
@@ -18,17 +17,21 @@
 }
 
 #msg-container {
-	left: 10px;
-	top: 560px;
-	width: 66%;
+	left: 0px;
+	top: 480px;
+	width: 70%;
 	height: 230px;
-	padding: 15px;
+	padding: 40px 20px;
 	text-align: left;
+	background: #252324;
 }
+#msg-container div {
 
+}
 #msg-title {
 	font-size: 42px;
 	padding-bottom: 2px;
+	color: white;
 }
 
 .msg-item {
@@ -37,35 +40,52 @@
 }
 
 #schedule-container {
-	right: 10px;
-	top: 60px;
-	width: 31%;
-	height: 730px;
-}
-
-#padding-container {
 	position: absolute;
+	right: 0px;
+	width: 30%;
+	height: 660px;
+	overflow: scroll;
+	box-shadow: -7px 3px 10px 1px rgba(0,0,0,.3);
+	top: 50px;
+}
+#schedule-container h2  {
+	text-align: left;
+	padding: 20px;
+	margin: 0;
+	color: rgba(8, 88, 73, 1);
+	vertical-align: top;
+
+}
+#schedule-container h4  {
+	text-transform: uppercase;
+	text-align: left;
+	padding: 10px 20px;
+	margin: 0;
+
+}
+#schedule-container table {
+	padding: 20px;
+}
+#padding-container {
 	top: 810px;
 	width: 100%;
 	height: 40px;
+	padding: 0px;
 }
 
-#schedule-container h2 {
-	color: rgba(8, 88, 73, 1);
-}
 
 #schedule-saturday, #schedule-sunday {
-	font-size: 20px;
+	font-size: 15px;
+	padding: 15px 20px;
+	line-height: 20px;
 	width: 100%;
+	text-align: left;
 }
 
-.schedule-item:nth-child(2n) {
-	background-color: rgb(224, 224, 204);
+.schedule-item {
+	background-color: white;
 }
 
-.schedule-item:nth-child(2n+1) {
-	background-color: rgb(242, 242, 220);
-}
 
 .schedule-break {
 	width: 90%;
@@ -73,7 +93,46 @@
 	background-color: rgb(17, 140, 118);
 	border-color: rgb(17, 140, 118);
 }
-
 .schedule-time {
-	width: 50%;
+	width: 20%;
+	vertical-align: top;
+	padding: 15px 15px 15px 0;
+	color: #ED3F23;
+}
+
+/* color: #ED3F23;529fa9 */
+
+.schedule-item td {
+	vertical-align: top;
+	padding: 15px;
+	padding-left: 20px;
+}
+
+.time-conatiner {
+	background-color: rgb(242, 242, 220);
+	top: 50px;
+	height: 100px;
+}
+.timer {
+	position: absolute;
+	padding: 20px;
+	background: white;
+	height: 100px;
+	width: 150px;
+	border-radius: 20px;
+	color: #252324;
+}
+.timer h3, .timer p {
+	color: #252324;
+	margin: 0;
+	text-align: center;
+	font-weight: bold;
+}
+.timer p {
+	font-size: 10px;
+	text-align: center;
+	padding: 10px 0;
+}
+#msg-title, .msg-item {
+	padding-left: 190px;
 }
