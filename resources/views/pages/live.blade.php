@@ -10,10 +10,6 @@
 		<div id="video-container" class="live-container">
 			<iframe width="640" height="360" id="video-frame" src="https://www.youtube.com/embed/ZqLXluCNKL4" frameborder="0" scrolling="no" allowfullscreen></iframe>
 		</div>
-		<div id="timer-container" class="timer-container">
-			<h1>12h 10m</h1>
-			<p>Until Hacking ends</p>
-		</div>
 		<div id="schedule-container" class="live-container">
 			<h2>Schedule</h2>
 			<h4>Saturday</h4>
@@ -95,7 +91,7 @@
 
 		<div id="msg-container" class="live-container">
 			<div class="timer">
-				<h3>24h 0m</h3>
+				<h3><span id="hour">12</span>h <span id="minute">10</span>m</h3>
 				<p>Until Hacking ends</p>
 			</div>
 			<div id="msg-title">Quick Links</div>
@@ -110,5 +106,29 @@
 
 	</div>
 </div></div>
+
+@stop
+
+@section("customJS")
+
+<script>
+
+var end = new Date('10/16/2016 11:00 AM EDT');
+    var timer;
+
+    function showRemaining() {
+        var now = new Date();
+        var distance = new Date(end - now);
+				distance.setHours(distance.getHours() + 5);
+        if (distance < 0) {
+            clearInterval(timer);
+            	return;
+        }
+        document.getElementById('hour').innerHTML = distance.getHours();
+        document.getElementById('minute').innerHTML = distance.getMinutes();
+			}
+    timer = setInterval(showRemaining, 1000);
+
+</script>
 
 @stop
