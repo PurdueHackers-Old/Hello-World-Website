@@ -31,7 +31,7 @@
         <link href='//fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 
 	    <!-- Portal Site CSS -->
-	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=3">
+	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=4">
 
     </head>
     <body {!! ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' !!}>
@@ -78,7 +78,7 @@
 			var eventID = {{ $eventID }};
 		</script>
 		@endif
-		<script type="text/javascript" src="/js/membersportal.js"></script>
+		<script type="text/javascript" src="/js/membersportal.js?v=2"></script>
 		<!-- Page Specific JS -->
 		@yield('customJS')
     </body>

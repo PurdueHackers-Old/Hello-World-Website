@@ -41,6 +41,14 @@ class PortalController extends Controller {
 		return view('pages.resources');
 	}
 	
+	public function getLive() {
+		return view('pages.home');
+	}
+	
+	public function getDayof() {
+		return view('pages.home');
+	}
+	
 	/////////////////////////////// Authentication ///////////////////////////////
 	
 	public function getLogin() {

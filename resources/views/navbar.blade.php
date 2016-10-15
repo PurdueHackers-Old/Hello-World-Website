@@ -15,6 +15,7 @@
 					<li><a href="#schedule">Schedule</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				@endif
+				<li><a href="/resources">Resources</a></li>
 				@if(session()->get('authenticated_member') == "true")
 					<li><a href="/member/{{ session()->get('member_id') }}">Profile</a></li>
 					<li><a href="/apply/1">Sign Up</a></li>
@@ -22,7 +23,6 @@
 					<li><a href="/join">Sign Up</a></li>
 					<li><a href="/login">Log In</a></li>
 				@endif
-				<li><a href="/resources">Resources</a></li>
 				@if(session()->get('authenticated_admin') == "true")
 					<li><a href="/members">Members</a></li>
 					<li><a href="/events">Events</a></li>
