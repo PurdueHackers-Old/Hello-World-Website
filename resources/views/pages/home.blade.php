@@ -45,7 +45,7 @@
 	</div>
 </div>
 
-<br><div id="schedule"></div><br><br><br><br>
+<br><br><br><br><br>
 
 <div class="timeline">
 	<h1>Workshop Schedule</h1>
@@ -95,8 +95,8 @@
 		</div>
 	</div>
 </div>
-	<br><br>
-	<div class="day-of">
+<div id="schedule"></div><br><br>
+<div class="day-of">
   <div class="day-of-window">
     <h2>Saturday Schedule</h2>
 
