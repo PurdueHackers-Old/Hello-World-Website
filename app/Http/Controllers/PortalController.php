@@ -44,11 +44,11 @@ class PortalController extends Controller {
 	}
 	
 	public function getLive() {
-		return view('pages.home');
+		return view('pages.live');
 	}
 	
 	public function getDayof() {
-		return view('pages.home');
+		return view('pages.live');
 	}
 	
 	/////////////////////////////// Authentication ///////////////////////////////

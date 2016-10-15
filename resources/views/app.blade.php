@@ -32,6 +32,7 @@
 
 	    <!-- Portal Site CSS -->
 	    <link rel="stylesheet" type="text/css" href="/css/helloworld.css?v=5">
+	    <link rel="stylesheet" type="text/css" href="/css/helloworld_live.css">
 
     </head>
     <body {!! ($view_name == "pages-home") ? 'class="index"' : 'class="notIndex"' !!}>

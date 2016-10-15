@@ -1,0 +1,79 @@
+.live-container {
+	color: rgb(17, 140, 118);
+	background-color: rgb(242, 242, 220);
+	position: absolute;
+}
+
+#video-container {
+	left: 10px;
+	top: 60px;
+	width: 66%;
+	height: 480px;
+	padding: 10px;
+}
+
+#video-frame {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+#msg-container {
+	left: 10px;
+	top: 560px;
+	width: 66%;
+	height: 230px;
+	padding: 15px;
+	text-align: left;
+}
+
+#msg-title {
+	font-size: 42px;
+	padding-bottom: 2px;
+}
+
+.msg-item {
+	margin-top: 7px;
+	font-size: 18px;
+}
+
+#schedule-container {
+	right: 10px;
+	top: 60px;
+	width: 31%;
+	height: 730px;
+}
+
+#padding-container {
+	position: absolute;
+	top: 810px;
+	width: 100%;
+	height: 40px;
+}
+
+#schedule-container h2 {
+	color: rgba(8, 88, 73, 1);
+}
+
+#schedule-saturday, #schedule-sunday {
+	font-size: 20px;
+	width: 100%;
+}
+
+.schedule-item:nth-child(2n) {
+	background-color: rgb(224, 224, 204);
+}
+
+.schedule-item:nth-child(2n+1) {
+	background-color: rgb(242, 242, 220);
+}
+
+.schedule-break {
+	width: 90%;
+	color: rgb(17, 140, 118);
+	background-color: rgb(17, 140, 118);
+	border-color: rgb(17, 140, 118);
+}
+
+.schedule-time {
+	width: 50%;
+}
