@@ -144,6 +144,54 @@
 			</div>
 		</div>
 		
+		<div class="club-container">
+			<div class="club clearfix">
+				<div class="club-logo">
+					<img src="images/HW/logo_final_s.png">
+				</div>
+				<div class="club-info clearfix">
+					<h2>Hello World Presents</h2>
+					<p class="subtext">Making Art with Code</p>
+					<a class="gitbook-link clearfix link-btn" href="https://www.livecoding.tv/harrischristiansen/videos/BMjQK-hello-world-making-art-with-code-workshop" target="_blank">
+						<img class="github-logo" alt="youtube" src="/images/HW/youtube.png">
+						<p>Watch Video</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="club-container">
+			<div class="club clearfix">
+				<div class="club-logo">
+					<img src="images/HW/logo_final_s.png">
+				</div>
+				<div class="club-info clearfix">
+					<h2>Hello World Presents</h2>
+					<p class="subtext">Web Scraping and APIs</p>
+					<a class="gitbook-link clearfix link-btn" href="#" target="_blank">
+						<img class="github-logo" alt="youtube" src="/images/HW/youtube.png">
+						<p>Watch Video</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="club-container">
+			<div class="club clearfix">
+				<div class="club-logo">
+					<img src="images/HW/logo_final_s.png">
+				</div>
+				<div class="club-info clearfix">
+					<h2>Hello World Presents</h2>
+					<p class="subtext">Opening Ceremony</p>
+					<a class="gitbook-link clearfix link-btn" href="https://www.livecoding.tv/harrischristiansen/videos/BMjnK-hello-world-opening-ceremonies" target="_blank">
+						<img class="github-logo" alt="youtube" src="/images/HW/youtube.png">
+						<p>Watch Video</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </div></div>
 
