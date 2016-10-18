@@ -2,6 +2,13 @@
 
 @section("content")
 
+@if (session()->get('authenticated_member') != "true")
+<div class="navHome">
+	<a href="/join" class="button btn-lg link-btn" style="margin-right: 100px;">Sign Up</a>
+	<a href="/login" class="button btn-lg link-btn">Log In</a>
+</div>
+@endif
+
 <div class="welcome">
 	<div class="left">
 		<img src="/images/HW/rocket_fade_s.png" alt="rocket" class="rocket">
@@ -13,6 +20,11 @@
 		<br>
 		October 15-16
 		</h2>
+		@if (session()->get('authenticated_member') == "true")
+		<a href="/apply/1" class="button btn-lg link-btn">Sign Up</a>
+		@else
+		<a href="/join" class="button btn-lg link-btn">Sign Up</a>
+		@endif
 	</div>
 </div>
 
@@ -234,6 +246,8 @@
 			<br><br>
 			The best way to learn is to surround yourself by experts in that domain, which is why thousands of students have found hackathons to be the perfect venues for learning.
 		</p>
+		<br><br>
+		<a class="link-btn" href="/join">Sign Up</a>
 	</div>
 </div>
 
