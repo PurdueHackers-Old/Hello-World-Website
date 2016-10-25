@@ -145,3 +145,11 @@
 #msg-title, .msg-item {
 	padding-left: 190px;
 }
+
+/* --------- Resources Page ----------- */
+
+.gitbook-link {
+	display: block;
+	width: 300px;
+	height: 60px;
+}
