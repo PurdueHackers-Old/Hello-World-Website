@@ -13,6 +13,7 @@
 		<br>
 		October 15-16
 		</h2>
+		<a href="https://hello-world.devpost.com/" class="button btn-lg link-btn" target="_blank">View Submissions</a>
 	</div>
 </div>
 
